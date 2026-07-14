@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens — transcribed 1:1 from Figma variables (file "Test1").
+   Never hardcode hex in components; add a --rd-* var here first. */
+:root {
+  /* bg */
+  --rd-bg-default: #0a0a0a;
+  --rd-bg-muted: #121212;
+  --rd-bg-subtle: #1a1a1a;
+  --rd-bg-state-ghost: #ffffff00;
+  --rd-bg-state-secondary: #ffffff0f;
+  --rd-bg-state-soft: #ffffff14;
+  --rd-bg-badge: #ffffff1a;
+  --rd-bg-badge-orange: #f38f361a;
+  --rd-lime: #95d72d; /* bg/basic/lime-accent */
+  --rd-lime-strong: #b0ff00; /* bg/basic/lime-strong */
+  --rd-orange: #ff6b00; /* bg/basic/orange-accent */
+  --rd-orange-strong: #ff8a33; /* bg/basic/orange-strong */
+
+  /* text */
+  --rd-text-default: #ffffff;
+  --rd-text-primary: #f3f3f3;
+  --rd-text-subtle: #ffffffb2;
+  --rd-text-muted: #ffffff80;
+  --rd-text-hint: #ffffff66;
+  --rd-text-dark: #121212;
+
+  /* icon */
+  --rd-icon-default: #ffffff;
+  --rd-icon-muted: #ffffff80;
+  --rd-icon-subtle: #ffffffb2;
+  --rd-icon-black: #121212;
+  --rd-icon-info: #5cadff;
+
+  /* border */
+  --rd-border-default: #ffffff0f;
+  --rd-border-darker: #ffffff26;
+  --rd-border-accent: #95d72d;
+
+  /* logo icon gradient (Figma LogoIconE 18328:104449) */
+  --rd-logo-grad-from: #c7ff47;
+  --rd-logo-grad-to: #87c200;
+
+  /* card (Figma Card 18327:86059) */
+  --rd-card-hover-grad-from: #35532e;
+  --rd-chip-bg: #ffffff1f; /* rgba(255,255,255,0.12) tag chip on hover */
+
+  /* effects — Figma INNER_SHADOW compositions */
+  --rd-shadow-component: inset 0 1px 0 0 var(--rd-border-default);
+  --rd-shadow-button-primary:
+    inset 0 2px 0 0 var(--rd-border-default),
+    inset 0 0 0 1px var(--rd-border-accent);
+  --rd-shadow-card:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.12);
+}
+
+html {
+  color-scheme: dark;
+}
+
+/* Figma frames clip overflowing decor (1440 bg strips, illustrations) */
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--rd-bg-default);
+  color: var(--rd-text-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
