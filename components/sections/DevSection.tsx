@@ -111,31 +111,35 @@ export function DevSection() {
           </div>
         </div>
       </div>
-      {/* BGLIGHT mobile (полоса 390 по центру) */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-full w-[390px] -translate-x-1/2 md:hidden">
-        <div className="absolute left-[7px] top-[114.88px] h-[569px] w-[375.363px] mix-blend-plus-lighter">
-          <div className="absolute inset-[-3.17%_-4.68%_-3.17%_-4.55%]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-mobile.svg`} />
-          </div>
-        </div>
-        <div className="absolute left-[9.12px] top-[114.88px] h-[565.269px] w-[371.122px] mix-blend-plus-lighter">
-          <div className="absolute inset-[-10.74%_-16.25%]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-mobile.svg`} />
-          </div>
-        </div>
-        <div className="absolute left-[10.94px] top-[120.47px] h-[554.075px] w-[368.092px] mix-blend-plus-lighter">
-          <div className="absolute inset-[-1.74%_-2.37%_-1.74%_-2.52%]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-mobile.svg`} />
-          </div>
-        </div>
-      </div>
-
       <div className="relative flex w-full flex-col items-center overflow-clip rounded-[20px] px-[16px] py-[40px] md:px-[24px] md:py-[80px]">
         {/* бордерная карточка */}
         <Reveal y={40} className="relative w-full max-w-[1200px]">
+        {/* BGLIGHT mobile — якорь к БОКСУ КАРТОЧКИ (в Figma 390: карточка (16,40)
+            358x628, глоу (7,114.88) 375x569 → офсеты -9/+74.9/-8.4/-15.9);
+            фикс-координаты в секции на 430..740 вылезали дугой в «Отзывы» */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-[-15.9px] left-[-9px] right-[-8.4px] top-[74.9px] md:hidden"
+        >
+          <div className="absolute inset-0 mix-blend-plus-lighter">
+            <div className="absolute inset-[-3.17%_-4.68%_-3.17%_-4.55%]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-mobile.svg`} />
+            </div>
+          </div>
+          <div className="absolute bottom-[3.7px] left-[2.1px] right-[2.1px] top-0 mix-blend-plus-lighter">
+            <div className="absolute inset-[-10.74%_-16.25%]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-mobile.svg`} />
+            </div>
+          </div>
+          <div className="absolute bottom-[9.4px] left-[3.9px] right-[3.3px] top-[5.6px] mix-blend-plus-lighter">
+            <div className="absolute inset-[-1.74%_-2.37%_-1.74%_-2.52%]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-mobile.svg`} />
+            </div>
+          </div>
+        </div>
         {/* рамка — inset-тенью (в Figma stroke inside: карточка ровно 528, border снаружи давал 530 и 2px-сдвиг робота) */}
         <div className="relative flex w-full flex-col items-center gap-[24px] overflow-clip rounded-[20px] shadow-[inset_0_0_0_1px_var(--rd-border-default)]">
           <div className="relative flex w-full flex-col items-start gap-[16px] rounded-[20px] p-[16px] md:gap-[32px] md:py-[40px] md:pl-[40px] md:pr-[12px]">

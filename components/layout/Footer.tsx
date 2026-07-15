@@ -83,13 +83,13 @@ function Divider() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
-          className="hidden size-full max-w-none md:block"
+          className="hidden size-full max-w-none lg:block"
           src="/assets/footer/line-desktop.svg"
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
-          className="block size-full max-w-none md:hidden"
+          className="block size-full max-w-none lg:hidden"
           src="/assets/footer/line-mobile.svg"
         />
       </div>
@@ -146,19 +146,20 @@ const SMOKE_LAYER_B: CSSProperties = {
 export function Footer() {
   return (
     <footer
-      className="relative flex w-full flex-col items-center bg-rd-bg-default px-[16px] py-[40px] shadow-[inset_0_1px_0_0_var(--rd-border-default)] md:px-[24px] md:py-[48px]"
+      className="relative flex w-full flex-col items-center bg-rd-bg-default px-[16px] py-[40px] shadow-[inset_0_1px_0_0_var(--rd-border-default)] lg:px-[24px] lg:py-[48px]"
       data-name="Footer"
       data-node-id="18329:359529"
     >
-      <div className="relative flex w-full max-w-[1200px] flex-col items-start gap-[24px] md:gap-0">
+      <div className="relative flex w-full max-w-[1200px] flex-col items-start gap-[24px] lg:gap-0">
         {/* top content — desktop (4 columns, fixed 286px height) */}
-        <div className="hidden h-[286px] w-full items-start gap-[24px] md:flex">
+        <div className="hidden h-[286px] w-full items-start gap-[24px] lg:flex">
           <div className="flex flex-col items-start">
             <Logo />
           </div>
           <div className="flex h-full min-w-px flex-[1_0_0] items-start justify-between px-[32px] pb-[24px]">
             <FooterGameBlock variant="desktop" />
-            <div className="flex h-full items-end justify-center">
+            {/* на lg (1024..1279) зоне игры тесно — подсказку показываем с xl */}
+            <div className="hidden h-full items-end justify-center xl:flex">
               <ReleaseHint />
             </div>
           </div>
@@ -167,14 +168,14 @@ export function Footer() {
         </div>
 
         {/* top content — mobile (stacked) */}
-        <div className="flex w-full flex-col items-start gap-[24px] md:hidden">
+        <div className="flex w-full flex-col items-start gap-[24px] lg:hidden">
           <Logo />
           <ProjectsBlock className="w-full" />
           <ContactsBlock className="w-full" />
         </div>
 
         {/* smoke overlays — desktop */}
-        <div className="hidden md:contents">
+        <div className="hidden lg:contents">
           <SmokeStack
             className="left-[214px] top-[-67px] h-[108px] w-[250px]"
             secondLayer={SMOKE_LAYER_A}
@@ -185,7 +186,7 @@ export function Footer() {
           />
         </div>
         {/* smoke overlays — mobile */}
-        <div className="contents md:hidden">
+        <div className="contents lg:hidden">
           <SmokeStack
             className="left-[-37.67px] top-[316.07px] h-[105.577px] w-[257.89px]"
             secondLayer={SMOKE_LAYER_A}
@@ -199,24 +200,24 @@ export function Footer() {
         <Divider />
 
         {/* counter row — mobile only (on desktop the counter lives in the top row) */}
-        <div className="flex h-[286px] w-full items-start justify-between pb-[24px] md:hidden">
+        <div className="flex h-[286px] w-full items-start justify-between pb-[24px] lg:hidden">
           <FooterGameBlock variant="mobile" />
           <div className="flex h-full min-w-px flex-[1_0_0] items-start justify-end">
             <ReleaseHint />
           </div>
         </div>
-        <div className="contents md:hidden">
+        <div className="contents lg:hidden">
           <Divider />
         </div>
 
         {/* bottom bar: legal links + copyright */}
-        <div className="flex w-full flex-col items-start gap-[16px] whitespace-nowrap font-normal not-italic [word-break:break-word] md:flex-row md:gap-[8px] md:pt-[36px]">
-          <div className="flex w-full flex-col items-start justify-center gap-[16px] text-rd-xs text-rd-text-muted md:w-auto md:min-w-px md:flex-[1_0_0] md:flex-row md:items-center md:justify-start">
+        <div className="flex w-full flex-col items-start gap-[16px] whitespace-nowrap font-normal not-italic [word-break:break-word] lg:flex-row lg:gap-[8px] lg:pt-[36px]">
+          <div className="flex w-full flex-col items-start justify-center gap-[16px] text-rd-xs text-rd-text-muted lg:w-auto lg:min-w-px lg:flex-[1_0_0] lg:flex-row lg:items-center lg:justify-start">
             <p>Политика конфиденциальности</p>
             <p>Пользовательское соглашение</p>
             <p>Cookie</p>
           </div>
-          <p className="text-rd-sm text-rd-text-subtle md:text-rd-xs md:text-rd-text-muted">
+          <p className="text-rd-sm text-rd-text-subtle lg:text-rd-xs lg:text-rd-text-muted">
             BrickAgency All Rights Reserved © 2026
           </p>
         </div>

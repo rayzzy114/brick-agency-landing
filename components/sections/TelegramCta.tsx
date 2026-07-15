@@ -76,7 +76,7 @@ function GreenGlow() {
   return (
     // клип-обёртка: как фрейм в Figma, режет глоу по низу секции (иначе бокс 1622px
     // растягивает страницу под футером)
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[-452px] z-0 hidden overflow-hidden md:block">
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[-452px] z-0 hidden overflow-hidden xl:block">
     <div className="pointer-events-none absolute left-1/2 top-0 h-[1622.666px] w-[1440px] -translate-x-1/2">
       {/* Figma-группа повёрнута на 180° (flip X+Y) — codegen теряет трансформ группы;
           выверено по скринам макета (аврора за роботом, карточки чистые) */}
@@ -88,12 +88,12 @@ function GreenGlow() {
   );
 }
 
-/* Мобильное свечение: Figma Group 18339:203527 (канва 390, page y=3663 → top 57.88
+/* Мобильное свечение (до xl): Figma Group 18339:203527 (канва 390, page y=3663 → top 57.88
    от секции 3605.125), контейнер Group 1171275535 left=-575.98; ориентация
    откалибрована хитмапом против mshot-cta (кодген теряет транформ группы) */
 function GreenGlowMobile() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden md:hidden">
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden xl:hidden">
       <div
         id="mglow-cal"
         className="absolute left-[-536px] top-[37.88px] h-[1622.666px] w-[1652.662px] -scale-y-100"
@@ -107,16 +107,16 @@ function GreenGlowMobile() {
 export function TelegramCta() {
   return (
     <section
-      className="relative flex h-[899px] w-full flex-col items-center gap-[10px] overflow-x-clip px-[48px] py-[20px] md:h-[500px] md:justify-center md:px-[24px] md:py-[96px]"
+      className="relative flex h-[899px] w-full flex-col items-center gap-[10px] overflow-x-clip px-[48px] py-[20px] xl:h-[500px] xl:justify-center xl:px-[24px] xl:py-[96px]"
       id="community"
       data-node-id="18329:363117"
     >
       <GreenGlow />
       <GreenGlowMobile />
-      <div className="relative flex w-full max-w-[660px] md:max-w-[1200px] md:items-center">
-        <Reveal className="flex w-full flex-col items-start justify-center gap-[40px] md:min-w-px md:max-w-[660px] md:flex-1">
-          <div className="flex w-full flex-col items-start justify-center gap-[16px] text-center md:text-left [word-break:break-word]">
-            <h2 className="w-full text-[30px] font-semibold leading-[36px] tracking-[-0.6px] text-rd-text-default md:text-rd-4xl md:tracking-[-0.72px]">
+      <div className="relative flex w-full max-w-[660px] xl:max-w-[1200px] xl:items-center">
+        <Reveal className="flex w-full flex-col items-start justify-center gap-[40px] xl:min-w-px xl:max-w-[660px] xl:flex-1">
+          <div className="flex w-full flex-col items-start justify-center gap-[16px] text-center xl:text-left [word-break:break-word]">
+            <h2 className="w-full text-[30px] font-semibold leading-[36px] tracking-[-0.6px] text-rd-text-default xl:text-rd-4xl xl:tracking-[-0.72px]">
               Узнавайте все новости о нашем проекте первым а также заходи в чат
               если ты дизайнер а не лошок
             </h2>
@@ -125,17 +125,17 @@ export function TelegramCta() {
               комьюнити и так далее
             </p>
           </div>
-          <div className="flex w-full flex-col items-start gap-[8px] md:w-auto md:flex-row">
+          <div className="flex w-full flex-col items-start gap-[8px] xl:w-auto xl:flex-row">
             {/* primary label differs per breakpoint in Figma (чат on desktop, канал on mobile) */}
-            <Button variant="primary" size="lg" className="w-full md:w-auto">
-              <span className="md:hidden">Перейти в Telegram-канал</span>
-              <span className="hidden md:inline">Перейти в Telegram-чат</span>
+            <Button variant="primary" size="lg" className="w-full xl:w-auto">
+              <span className="xl:hidden">Перейти в Telegram-канал</span>
+              <span className="hidden xl:inline">Перейти в Telegram-чат</span>
             </Button>
             {/* secondary: bg/state/soft + text/subtle, no inner shadow — differs from ui/Button secondary;
                 hover (кит 34:852 Soft/Hover): bg → bg/state/soft-hover */}
             <button
               type="button"
-              className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover md:w-auto"
+              className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover xl:w-auto"
             >
               <span className="flex items-center justify-center px-[2px]">
                 <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-subtle [word-break:break-word]">
@@ -148,7 +148,7 @@ export function TelegramCta() {
       </div>
       {/* Illustration — masked photo, fades out via alpha gradient;
           z-[1] — строго выше GreenGlow (z-0), свечение только под иллюстрацией */}
-      <div className="pointer-events-none absolute left-1/2 top-0 z-[1] hidden h-full w-[1440px] -translate-x-1/2 md:block">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-[1] hidden h-full w-[1440px] -translate-x-1/2 xl:block">
         <div
           className="absolute left-[839px] top-0 h-[625px] w-[560px]"
           style={MASK_DESKTOP}
@@ -162,7 +162,7 @@ export function TelegramCta() {
         </div>
       </div>
       <div
-        className="pointer-events-none absolute left-[7px] top-[516.88px] h-[455.196px] w-[407.409px] md:hidden"
+        className="pointer-events-none absolute left-[7px] top-[516.88px] h-[455.196px] w-[407.409px] xl:hidden"
         style={MASK_MOBILE}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
