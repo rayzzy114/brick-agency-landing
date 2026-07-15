@@ -71,10 +71,7 @@ export function Hero() {
       <div className="relative flex w-full flex-col items-center px-[24px] py-[40px] md:py-[80px]">
         <div className="flex w-full max-w-[660px] flex-col items-center gap-[32px]">
           <Reveal mode="load" y={16}>
-            <LandingBadge
-              tailIcon="/assets/hero/badge-arrow.svg"
-              tailIconInset="23.49% 33.33% 23.48% 34.26%"
-            />
+            <LandingBadge tailIcon="/assets/icons/kit/arrow-right-s.svg" />
           </Reveal>
           <div className="flex w-full flex-col items-center gap-[16px] text-center [word-break:break-word]">
             <Reveal mode="load" delay={0.12} className="w-full">
@@ -104,7 +101,7 @@ export function Hero() {
               variant="primary"
               size="lg"
               href="#contact"
-              leadIcon="/assets/hero/cta-lead.svg"
+              leadIcon="/assets/icons/kit/telegram-2-fill-dark.svg"
             >
               Построить проект
             </Button>

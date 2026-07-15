@@ -135,13 +135,12 @@ function ProjectTile({
 /** Mobile (Variant2) page-type row: 18px icon + 14/16 title + 12/16 subtitle, gap 32. */
 function MobilePageRow({
   icon,
-  iconInset,
   title,
   subtitle,
   onClick,
 }: {
+  /** цельная кит-иконка (24px frame), рендерится в 18px */
   icon: string;
-  iconInset: string;
   title: string;
   subtitle: ReactNode;
   onClick?: () => void;
@@ -158,16 +157,13 @@ function MobilePageRow({
       >
         <div className="flex flex-row items-center self-stretch">
           <div className="flex h-full items-start py-[2px]" data-name="IconContainer">
-            <div className="relative size-[18px] shrink-0 overflow-clip" data-name="Icon">
-              <div className="absolute" style={{ inset: iconInset }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt=""
-                  className="absolute inset-0 block size-full max-w-none"
-                  src={icon}
-                />
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt=""
+              className="block size-[18px] shrink-0"
+              src={icon}
+              data-name="Icon"
+            />
           </div>
         </div>
         <div
@@ -256,8 +252,7 @@ export function MobileMenu({
             data-name="Pages"
           >
             <Tabitem
-              icon="/assets/menu/icon-vacancies.svg"
-              iconInset="4.17% 8.33% 12.5% 8.33%"
+              icon="/assets/icons/kit/briefcase-4-fill.svg"
               title="Вакансии"
               subtitle="Мы нуждаемся в талантах"
               width={290}
@@ -265,8 +260,7 @@ export function MobileMenu({
             />
             <HSeparator src="/assets/menu/separator-a.svg" />
             <Tabitem
-              icon="/assets/menu/icon-articles.svg"
-              iconInset="12.5% 12.5% 8.33% 12.5%"
+              icon="/assets/icons/kit/font-color.svg"
               title="Статьи"
               subtitle={
                 <>
@@ -279,8 +273,7 @@ export function MobileMenu({
             />
             <HSeparator src="/assets/menu/separator-a.svg" />
             <Tabitem
-              icon="/assets/menu/icon-resources.svg"
-              iconInset="12.51% 0.59% 9.31% 0.63%"
+              icon="/assets/icons/kit/vip-diamond-fill.svg"
               title="Ресурсы"
               subtitle={
                 <>
@@ -411,16 +404,14 @@ export function MobileMenu({
           <HSeparator src="/assets/menu/separator-b.svg" />
           <HSeparator src="/assets/menu/separator-b.svg" />
           <MobilePageRow
-            icon="/assets/menu/icon-vacancies.svg"
-            iconInset="4.17% 8.33% 12.5% 8.33%"
+            icon="/assets/icons/kit/briefcase-4-fill.svg"
             title="Вакансии"
             subtitle="Мы нуждаемся в талантах"
             onClick={onClose}
           />
           <HSeparator src="/assets/menu/separator-a.svg" />
           <MobilePageRow
-            icon="/assets/menu/icon-articles.svg"
-            iconInset="12.5% 12.5% 8.33% 12.5%"
+            icon="/assets/icons/kit/font-color.svg"
             title="Статьи"
             subtitle={
               <>

@@ -95,16 +95,13 @@ export function Header() {
                       {item.label}
                     </span>
                   </span>
-                  <span className="relative size-[16px] shrink-0 overflow-clip">
-                    <span className="absolute inset-[34.26%_23.48%_33.33%_23.48%]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        alt=""
-                        className="absolute inset-0 block size-full max-w-none"
-                        src="/assets/icons/tail-icon.svg"
-                      />
-                    </span>
-                  </span>
+                  {/* кит Icons 28:27: arrow-down-s (24px frame), белый 50% */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    alt=""
+                    className="block size-[16px] shrink-0"
+                    src="/assets/icons/kit/arrow-down-s.svg"
+                  />
                 </button>
               ) : (
                 <HeaderItem
@@ -145,7 +142,7 @@ export function Header() {
                 <Button
                   variant="primary"
                   href="#contact"
-                  leadIcon="/assets/icons/contact-lead.svg"
+                  leadIcon="/assets/icons/kit/telegram-2-fill-dark.svg"
                 >
                   Связаться
                 </Button>

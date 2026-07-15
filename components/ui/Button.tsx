@@ -5,7 +5,6 @@ export function Button({
   variant = "secondary",
   size = "sm",
   leadIcon,
-  leadIconInset = "20.15% 15.2% 12.35% 3.35%",
   href,
   onClick,
   className,
@@ -14,9 +13,8 @@ export function Button({
   variant?: "primary" | "secondary";
   /** sm = header (px-10 py-6, 16px icon, gap-4); lg = hero CTA (px-14 py-10, 18px icon, gap-6) */
   size?: "sm" | "lg";
-  /** asset path for the lead icon */
+  /** asset path for the lead icon (цельная кит-иконка, 24px frame) */
   leadIcon?: string;
-  leadIconInset?: string;
   href?: string;
   onClick?: () => void;
   className?: string;
@@ -48,18 +46,12 @@ export function Button({
         />
       )}
       {leadIcon && (
-        <span
-          className={`relative shrink-0 overflow-clip ${isLg ? "size-[18px]" : "size-[16px]"}`}
-        >
-          <span className="absolute" style={{ inset: leadIconInset }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              className="absolute inset-0 block size-full max-w-none"
-              src={leadIcon}
-            />
-          </span>
-        </span>
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          alt=""
+          className={`relative block shrink-0 ${isLg ? "size-[18px]" : "size-[16px]"}`}
+          src={leadIcon}
+        />
       )}
       <span className="relative flex items-center justify-center px-[2px]">
         <span

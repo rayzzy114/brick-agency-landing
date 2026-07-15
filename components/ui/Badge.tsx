@@ -3,15 +3,13 @@
 export function LandingBadge({
   title = "Brick®World",
   label = "Маркет для дизайнеров",
-  tailIcon = "/assets/icons/tail-icon.svg",
-  tailIconInset = "34.26% 23.48% 33.33% 23.48%",
+  tailIcon = "/assets/icons/kit/arrow-down-s.svg",
   className,
 }: {
   title?: string;
   label?: string;
-  /** 16px tail icon asset (hero uses /assets/hero/badge-arrow.svg with its own inset) */
+  /** 16px tail icon — цельная кит-иконка (hero использует kit/arrow-right-s.svg) */
   tailIcon?: string;
-  tailIconInset?: string;
   className?: string;
 }) {
   return (
@@ -39,16 +37,12 @@ export function LandingBadge({
       <p className="relative shrink-0 whitespace-nowrap text-center text-rd-sm font-medium text-rd-text-default">
         {label}
       </p>
-      <div className="relative size-[16px] shrink-0 overflow-clip">
-        <div className="absolute" style={{ inset: tailIconInset }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block size-full max-w-none"
-            src={tailIcon}
-          />
-        </div>
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        alt=""
+        className="relative block size-[16px] shrink-0"
+        src={tailIcon}
+      />
       <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-rd-component" />
     </div>
   );

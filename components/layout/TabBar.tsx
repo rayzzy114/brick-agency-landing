@@ -8,14 +8,14 @@ type TabKey = "about" | "portfolio" | "world" | "login" | "contact";
 function TabDefault({
   label,
   icon,
-  iconInset,
+  icon20,
   href,
   active,
 }: {
   label: string;
+  /** цельная кит-иконка (24px frame); icon20 — кастомная 20px-иконка, центрируется в 24px слоте ("О нас") */
   icon: string;
-  /** inset of the Vector inside the 24px lead-icon box; omit for the centered 20px icon ("О нас") */
-  iconInset?: string;
+  icon20?: boolean;
   href?: string;
   active?: boolean;
 }) {
@@ -28,20 +28,14 @@ function TabDefault({
       className="relative flex min-w-px flex-[1_0_0] flex-col items-center justify-center gap-[4px] overflow-clip py-[8px]"
       data-name="Tab"
     >
-      {iconInset ? (
-        <div
-          className="relative size-[24px] shrink-0 overflow-clip"
+      {!icon20 ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          alt=""
+          className="block size-[24px] shrink-0"
+          src={icon}
           data-name="lead-icon"
-        >
-          <div className="absolute" style={{ inset: iconInset }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              className="absolute inset-0 block size-full max-w-none"
-              src={icon}
-            />
-          </div>
-        </div>
+        />
       ) : (
         <div
           className="flex size-[24px] shrink-0 items-center justify-center overflow-clip"
@@ -197,28 +191,26 @@ export function TabBar({ active = "world" }: { active?: TabKey }) {
           <TabDefault
             label="О нас"
             icon="/assets/menu/tab-about.svg"
+            icon20
             href="#about"
             active={active === "about"}
           />
           <TabDefault
             label="Портфолио"
-            icon="/assets/menu/tab-portfolio.svg"
-            iconInset="12.5%"
+            icon="/assets/icons/kit/grid-fill.svg"
             href="#works"
             active={active === "portfolio"}
           />
           <TabSpecial href="#world" active={active === "world"} />
           <TabDefault
             label="Вход"
-            icon="/assets/menu/tab-login.svg"
-            iconInset="8.33% 8.33% 8.33% 4.17%"
+            icon="/assets/icons/kit/login-circle.svg"
             href="#login"
             active={active === "login"}
           />
           <TabDefault
             label="Связаться"
-            icon="/assets/menu/tab-contact.svg"
-            iconInset="20.15% 15.2% 12.35% 3.35%"
+            icon="/assets/icons/kit/telegram-2-fill-white50.svg"
             href="#contact"
             active={active === "contact"}
           />

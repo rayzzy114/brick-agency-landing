@@ -60,15 +60,20 @@ function Ray({
   insetClass,
   transformClass,
   src,
+  rayId,
 }: {
   posClass: string;
   boxClass: string;
   insetClass: string;
   transformClass: string;
   src: string;
+  rayId?: string;
 }) {
   return (
-    <div className={`absolute flex items-center justify-center ${posClass}`}>
+    <div
+      data-ray={rayId}
+      className={`absolute flex items-center justify-center ${posClass}`}
+    >
       <div className={`flex-none ${transformClass}`}>
         <div className={`relative ${boxClass}`}>
           <div className={`absolute ${insetClass}`}>
@@ -173,12 +178,9 @@ export function DevSection() {
             {/* Badge «Отдел разработки» */}
             <div className="relative flex shrink-0 items-center justify-center overflow-clip rounded-[6px] bg-rd-bg-badge-orange p-[4px]">
               <div className="flex size-[16px] shrink-0 items-center justify-center">
-                <div className="relative size-[14px] shrink-0 overflow-clip">
-                  <div className="absolute inset-[12.5%_0]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-badge-icon.svg`} />
-                  </div>
-                </div>
+                {/* кит Icons 28:27: code-s-slash (24px frame), оранж #FF8A33 из макета секции */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="" className="block size-[14px] shrink-0" src="/assets/icons/kit/code-s-slash-orange.svg" />
               </div>
               <div className="flex shrink-0 items-center pl-[2px] pr-[4px]">
                 <p className="whitespace-nowrap text-rd-xs font-medium text-rd-orange-strong [word-break:break-word]">
@@ -295,12 +297,9 @@ export function DevSection() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 rounded-[6px] bg-rd-orange-hover opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                 />
-                <span className="relative size-[18px] shrink-0 overflow-clip">
-                  <span className="absolute inset-[20.15%_15.2%_12.35%_3.35%]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-cta-lead.svg`} />
-                  </span>
-                </span>
+                {/* кит Icons 28:27: telegram-2 (Fill, 24px frame), белый */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img alt="" className="relative block size-[18px] shrink-0" src="/assets/icons/kit/telegram-2-fill-white.svg" />
                 <span className="relative flex items-center justify-center px-[2px]">
                   <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-default [text-shadow:0px_0.5px_1px_rgba(0,0,0,0.15)] [word-break:break-word]">
                     Заказать разработку
@@ -320,19 +319,22 @@ export function DevSection() {
               </button>
             </div>
 
-            {/* Ligt — лучи, desktop (в Figma группа Ligt идёт ПОСЛЕ Content — поверх текста) */}
-            <div aria-hidden className="pointer-events-none hidden md:contents">
-              <Ray posClass="left-[83.37px] top-[154.89px] h-[1354.625px] w-[1413.633px]" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[435.339px]" insetClass="inset-[-48.88%_-171.05%]" src={`${A}/dev-ellipse-26-desktop.svg`} />
-              <Ray posClass="left-[12.96px] top-0 h-[1068.995px] w-[1149.113px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[46.038px]" insetClass="inset-[-1.96%_-64.7%]" src={`${A}/dev-ellipse-29-desktop.svg`} />
-              <Ray posClass="left-[558.51px] top-[11.16px] h-[1083.598px] w-[1162.637px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[65.941px]" insetClass="inset-[-1.96%_-45.17%]" src={`${A}/dev-ellipse-30-desktop.svg`} />
-              <Ray posClass="left-[84.78px] top-[269.84px] h-[1107.146px] w-[1184.445px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[98.037px]" insetClass="inset-[-3.91%_-60.77%]" src={`${A}/dev-ellipse-27-desktop.svg`} />
-              <Ray posClass="left-0 top-[541.08px] h-[752.489px] w-[792.391px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[914.533px] w-[178.666px]" insetClass="inset-[-10.99%_-56.27%]" src={`${A}/dev-ellipse-31-desktop.svg`} />
-              <Ray posClass="left-[400.83px] top-[541.08px] h-[752.489px] w-[792.391px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[914.533px] w-[178.666px]" insetClass="inset-[-10.99%_-56.27%]" src={`${A}/dev-ellipse-31-desktop.svg`} />
-              <div className="absolute flex items-center justify-center mix-blend-overlay inset-[-51.4%_-73.01%_-169.75%_26.79%]" style={{ containerType: "size" }}>
-                <div className="flex-none rotate-[-35.83deg] h-[hypot(36.862cqw,52.8234cqh)] w-[hypot(63.138cqw,-47.1766cqh)]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
-                </div>
+            {/* Ligt — лучи, desktop (в Figma группа идёт ПОСЛЕ Content — поверх текста).
+                Иерархия восстановлена: Ligt bbox left-113 top--529 от карточки, внутри
+                Group 192л left-228.24 top--99.92 (агент схлопнул contents-офсеты);
+                metadata origin Ligt за холстом (x=2399 при 1440) → flip потерян codegen'ом */}
+            <div
+              aria-hidden
+              id="ligt-cal"
+              className="pointer-events-none absolute inset-0 hidden md:block"
+            >
+              <div className="absolute inset-0">
+              <Ray posClass="left-[83.37px] top-[154.89px] h-[1354.625px] w-[1413.633px] -scale-y-100" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[435.339px]" insetClass="inset-[-48.88%_-171.05%]" src={`${A}/dev-ellipse-26-desktop.svg`} rayId="ray26" />
+              <Ray posClass="left-[12.96px] top-0 h-[1068.995px] w-[1149.113px] mix-blend-plus-lighter -scale-x-100" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[46.038px]" insetClass="inset-[-1.96%_-64.7%]" src={`${A}/dev-ellipse-29-desktop.svg`} rayId="ray29" />
+              <Ray posClass="left-[558.51px] top-[11.16px] h-[1083.598px] w-[1162.637px] mix-blend-plus-lighter -scale-y-100" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[65.941px]" insetClass="inset-[-1.96%_-45.17%]" src={`${A}/dev-ellipse-30-desktop.svg`} rayId="ray30" />
+              <Ray posClass="left-[84.78px] top-[269.84px] h-[1107.146px] w-[1184.445px] mix-blend-plus-lighter -scale-y-100" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[98.037px]" insetClass="inset-[-3.91%_-60.77%]" src={`${A}/dev-ellipse-27-desktop.svg`} rayId="ray27" />
+              <Ray posClass="left-0 top-[541.08px] h-[752.489px] w-[792.391px] mix-blend-plus-lighter -scale-y-100" transformClass="rotate-[132.8deg]" boxClass="h-[914.533px] w-[178.666px]" insetClass="inset-[-10.99%_-56.27%]" src={`${A}/dev-ellipse-31-desktop.svg`} rayId="ray31" />
+              <Ray posClass="left-[400.83px] top-[541.08px] h-[752.489px] w-[792.391px] mix-blend-plus-lighter -scale-y-100" transformClass="rotate-[132.8deg]" boxClass="h-[914.533px] w-[178.666px]" insetClass="inset-[-10.99%_-56.27%]" src={`${A}/dev-ellipse-31-desktop.svg`} rayId="ray31" />
               </div>
               <div className="absolute flex items-center justify-center mix-blend-overlay inset-[-51.4%_-73.01%_-169.75%_26.79%]" style={{ containerType: "size" }}>
                 <div className="flex-none rotate-[-35.83deg] h-[hypot(36.862cqw,52.8234cqh)] w-[hypot(63.138cqw,-47.1766cqh)]">
@@ -340,7 +342,13 @@ export function DevSection() {
                   <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
                 </div>
               </div>
-              <Ray posClass="left-[509.33px] top-[-28.21px] h-[1232.681px] w-[1300.702px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[269.135px]" insetClass="inset-[-5.41%_-30.6%]" src={`${A}/dev-ellipse-28-desktop.svg`} />
+              <div className="absolute flex items-center justify-center mix-blend-overlay inset-[-51.4%_-73.01%_-169.75%_26.79%]" style={{ containerType: "size" }}>
+                <div className="flex-none rotate-[-35.83deg] h-[hypot(36.862cqw,52.8234cqh)] w-[hypot(63.138cqw,-47.1766cqh)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
+                </div>
+              </div>
+              <Ray posClass="left-[509.33px] top-[-28.21px] h-[1232.681px] w-[1300.702px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[269.135px]" insetClass="inset-[-5.41%_-30.6%]" src={`${A}/dev-ellipse-28-desktop.svg`} rayId="ray28" />
             </div>
           </div>
         </div>

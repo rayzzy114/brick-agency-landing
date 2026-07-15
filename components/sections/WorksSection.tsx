@@ -80,16 +80,13 @@ export function WorksSection() {
                 Посмотреть все работы
               </span>
             </span>
-            <span className="relative size-[18px] shrink-0 overflow-clip">
-              <span className="absolute inset-[24.99%_25%_24.93%_24.92%]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt=""
-                  className="absolute inset-0 block size-full max-w-none"
-                  src="/assets/sections/works-arrow.svg"
-                />
-              </span>
-            </span>
+            {/* кит Icons 28:27: arrow-right-up (Fill, 24px frame), белый 50% */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt=""
+              className="relative block size-[18px] shrink-0"
+              src="/assets/icons/kit/arrow-right-up-fill.svg"
+            />
           </button>
         </div>
 

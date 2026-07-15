@@ -106,19 +106,13 @@ export function Reviews() {
                     Взглянуть на проект
                   </span>
                 </span>
-                <span className="relative size-[16px] shrink-0 overflow-clip">
-                  <span
-                    className="absolute"
-                    style={{ inset: "24.99% 25% 24.93% 24.92%" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      alt=""
-                      className="absolute inset-0 block size-full max-w-none"
-                      src="/assets/sections/review-arrow.svg"
-                    />
-                  </span>
-                </span>
+                {/* кит Icons 28:27: arrow-right-up (Fill, 24px frame), белый 50% */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt=""
+                  className="relative block size-[16px] shrink-0"
+                  src="/assets/icons/kit/arrow-right-up-fill.svg"
+                />
               </button>
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-rd-component" />
             </Reveal>

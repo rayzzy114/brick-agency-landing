@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 
 export function Tabitem({
   icon,
-  iconInset = "4.17% 8.33% 12.5% 8.33%",
   title,
   subtitle,
   badge,
@@ -12,9 +11,8 @@ export function Tabitem({
   className,
   onClick,
 }: {
+  /** цельная кит-иконка (24px frame), рендерится в 18px */
   icon: string;
-  /** absolute inset of the icon Vector inside its 18px box (Figma per-icon value) */
-  iconInset?: string;
   title: string;
   subtitle: ReactNode;
   badge?: { icon?: string; label: string };
@@ -42,19 +40,13 @@ export function Tabitem({
             className="flex h-full items-start py-[2px]"
             data-name="IconContainer"
           >
-            <div
-              className="relative size-[18px] shrink-0 overflow-clip"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt=""
+              className="block size-[18px] shrink-0"
+              src={icon}
               data-name="Icon"
-            >
-              <div className="absolute" style={{ inset: iconInset }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt=""
-                  className="absolute inset-0 block size-full max-w-none"
-                  src={icon}
-                />
-              </div>
-            </div>
+            />
           </div>
         </div>
         <div
@@ -78,16 +70,13 @@ export function Tabitem({
               data-name="Badge"
             >
               <div className="flex size-[16px] items-center justify-center">
-                <div className="relative size-[12px] shrink-0 overflow-clip">
-                  <div className="absolute inset-[4.17%_16.67%_8.33%_16.67%]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      alt=""
-                      className="absolute inset-0 block size-full max-w-none"
-                      src={badge.icon ?? "/assets/menu/badge-lime.svg"}
-                    />
-                  </div>
-                </div>
+                {/* кит Icons 28:27: user-3 (Fill, 24px frame), lime #B0FF00 */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt=""
+                  className="block size-[12px] shrink-0"
+                  src={badge.icon ?? "/assets/icons/kit/user-3-fill-lime.svg"}
+                />
               </div>
               <div className="flex items-center pl-[2px] pr-[4px]">
                 <p className="whitespace-nowrap text-rd-xs font-medium text-rd-lime-strong [word-break:break-word]">
