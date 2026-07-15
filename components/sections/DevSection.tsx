@@ -152,8 +152,13 @@ export function DevSection() {
               />
             </div>
 
-            {/* Ligt — лучи, mobile */}
-            <div aria-hidden className="pointer-events-none contents md:hidden">
+            {/* Ligt — лучи, mobile; контейнер = калибровочный якорь (кодген потерял
+                транформ группы Ligt — как на десктопе), смещение подобрано хитмапом */}
+            <div
+              aria-hidden
+              id="mligt-cal"
+              className="pointer-events-none absolute inset-0 [transform:translate(-130px,300px)] md:hidden"
+            >
               <Ray posClass="left-[61.29px] top-[48.64px] h-[702.684px] w-[454.333px]" transformClass="rotate-[19.24deg] skew-x-[35.2deg] scale-y-[-0.82]" boxClass="h-[628.666px] w-[298.122px]" insetClass="inset-[-37.2%_-78.44%]" src={`${A}/dev-ellipse-26-mobile.svg`} />
               <Ray posClass="left-[9.53px] top-0 h-[614.823px] w-[202.632px] mix-blend-plus-lighter" transformClass="rotate-[19.24deg] skew-x-[35.2deg] scale-y-[-0.82]" boxClass="h-[628.666px] w-[31.527px]" insetClass="inset-[-1.49%_-29.67%]" src={`${A}/dev-ellipse-29-mobile.svg`} />
               <Ray posClass="left-[410.64px] top-[3.5px] h-[619.314px] w-[215.5px] mix-blend-plus-lighter" transformClass="rotate-[19.24deg] skew-x-[35.2deg] scale-y-[-0.82]" boxClass="h-[628.666px] w-[45.157px]" insetClass="inset-[-1.49%_-20.71%]" src={`${A}/dev-ellipse-30-mobile.svg`} />

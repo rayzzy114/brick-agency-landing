@@ -26,17 +26,11 @@ const MASK_MOBILE: React.CSSProperties = {
    широкий луч 28 + overlay-группы); узкие лучи 27/29/30/31/32 в макете скрыты
    футером/вне вьюпорта, а у нас (codegen потерял транформ группы) ложились
    яркими полосами ПОВЕРХ телефона и робота — убраны. */
-function GreenGlow() {
+function GlowLayers() {
   const A = "/assets/sections";
   return (
-    // клип-обёртка: как фрейм в Figma, режет глоу по низу секции (иначе бокс 1622px
-    // растягивает страницу под футером)
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[-452px] z-0 hidden overflow-hidden md:block">
-    <div className="pointer-events-none absolute left-1/2 top-0 h-[1622.666px] w-[1440px] -translate-x-1/2">
-      {/* Figma-группа повёрнута на 180° (flip X+Y) — codegen теряет трансформ группы;
-          выверено по скринам макета (аврора за роботом, карточки чистые) */}
-      <div className="absolute left-[320px] top-0 h-[1622.666px] w-[1652.662px] -scale-x-100 -scale-y-100">
-        <div className="absolute left-[242.46px] top-0 h-[1295.95px] w-[1365.822px]">
+    <>
+      <div className="absolute left-[242.46px] top-0 h-[1295.95px] w-[1365.822px]">
           <div className="absolute left-0 top-[125.46px] flex h-[950.689px] w-[719.374px] items-center justify-center">
             <div className="flex-none rotate-[149deg]">
               <div className="relative h-[946.588px] w-[270.477px]">
@@ -74,8 +68,38 @@ function GreenGlow() {
             </div>
           </div>
         </div>
+    </>
+  );
+}
+
+function GreenGlow() {
+  return (
+    // клип-обёртка: как фрейм в Figma, режет глоу по низу секции (иначе бокс 1622px
+    // растягивает страницу под футером)
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[-452px] z-0 hidden overflow-hidden md:block">
+    <div className="pointer-events-none absolute left-1/2 top-0 h-[1622.666px] w-[1440px] -translate-x-1/2">
+      {/* Figma-группа повёрнута на 180° (flip X+Y) — codegen теряет трансформ группы;
+          выверено по скринам макета (аврора за роботом, карточки чистые) */}
+      <div className="absolute left-[320px] top-0 h-[1622.666px] w-[1652.662px] -scale-x-100 -scale-y-100">
+        <GlowLayers />
       </div>
     </div>
+    </div>
+  );
+}
+
+/* Мобильное свечение: Figma Group 18339:203527 (канва 390, page y=3663 → top 57.88
+   от секции 3605.125), контейнер Group 1171275535 left=-575.98; ориентация
+   откалибрована хитмапом против mshot-cta (кодген теряет транформ группы) */
+function GreenGlowMobile() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden md:hidden">
+      <div
+        id="mglow-cal"
+        className="absolute left-[-536px] top-[37.88px] h-[1622.666px] w-[1652.662px] -scale-y-100"
+      >
+        <GlowLayers />
+      </div>
     </div>
   );
 }
@@ -88,6 +112,7 @@ export function TelegramCta() {
       data-node-id="18329:363117"
     >
       <GreenGlow />
+      <GreenGlowMobile />
       <div className="relative flex w-full max-w-[660px] md:max-w-[1200px] md:items-center">
         <Reveal className="flex w-full flex-col items-start justify-center gap-[40px] md:min-w-px md:max-w-[660px] md:flex-1">
           <div className="flex w-full flex-col items-start justify-center gap-[16px] text-center md:text-left [word-break:break-word]">
