@@ -1,22 +1,15 @@
-// Figma: node-id=17003:82962 (Logo, Type=Full)
-import { PixelGridMasked } from "./PixelGrid";
+// Figma: node-id=17003:82962 (Logo, Type=Full); куб — цельный SVG (logo-brick.svg,
+// прод-ассет brickworld.io: градиент + пиксель-паттерн + глиф + рамка в одном файле)
 
 export function LogoIcon({ className }: { className?: string }) {
   return (
-    <div
-      className={`relative size-[32px] shrink-0 overflow-clip rounded-[8px] border border-solid border-[rgba(255,255,255,0.5)] bg-gradient-to-b from-[var(--rd-logo-grad-from)] to-[var(--rd-logo-grad-to)] ${className ?? ""}`}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt=""
+      className={`block shrink-0 ${className ?? "size-[32px]"}`}
+      src="/assets/icons/solid/logo-brick.svg"
       data-node-id="18328:104449"
-    >
-      <PixelGridMasked />
-      <div className="absolute left-[3.69px] top-[5.63px] h-[18.75px] w-[22.625px]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          alt=""
-          className="absolute inset-0 block size-full max-w-none"
-          src="/assets/logo/icon-vector.svg"
-        />
-      </div>
-    </div>
+    />
   );
 }
 

@@ -4,16 +4,9 @@ import { Logo, LogoIcon } from "@/components/ui/Logo";
 import { BrickWorldIcon } from "@/components/ui/BrickWorldIcon";
 import { FooterGameBlock, ReleaseHint } from "./FooterGame";
 
-/** 16px mini-cube: full 32px cube structure scaled 0.5, matching Figma's
-    scaled instances (same convention as BwMiniIcon in Header.tsx). */
+/** 16px mini-cube: цельные SVG-иконки рендерятся сразу в 16px */
 function Mini16({ children }: { children: ReactNode }) {
-  return (
-    <div className="relative size-[16px] shrink-0">
-      <div className="absolute left-0 top-0 origin-top-left scale-50">
-        {children}
-      </div>
-    </div>
-  );
+  return <div className="flex size-[16px] shrink-0 items-center">{children}</div>;
 }
 
 function ProjectLine({ icon, tail }: { icon: ReactNode; tail: string }) {
@@ -37,7 +30,7 @@ function ProjectsBlock({ className }: { className: string }) {
       <ProjectLine
         icon={
           <Mini16>
-            <LogoIcon />
+            <LogoIcon className="size-[16px]" />
           </Mini16>
         }
         tail="Agency"
@@ -45,7 +38,7 @@ function ProjectsBlock({ className }: { className: string }) {
       <ProjectLine
         icon={
           <Mini16>
-            <BrickWorldIcon project="market" />
+            <BrickWorldIcon project="market" className="size-[16px]" />
           </Mini16>
         }
         tail="Market"
@@ -53,7 +46,7 @@ function ProjectsBlock({ className }: { className: string }) {
       <ProjectLine
         icon={
           <Mini16>
-            <BrickWorldIcon project="tools" />
+            <BrickWorldIcon project="tools" className="size-[16px]" />
           </Mini16>
         }
         tail="Tools"
@@ -61,7 +54,7 @@ function ProjectsBlock({ className }: { className: string }) {
       <ProjectLine
         icon={
           <Mini16>
-            <BrickWorldIcon project="ceh" />
+            <BrickWorldIcon project="ceh" className="size-[16px]" />
           </Mini16>
         }
         tail="ЦЕХ"

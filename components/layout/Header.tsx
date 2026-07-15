@@ -6,28 +6,17 @@ import { Logo } from "@/components/ui/Logo";
 import { HeaderItem } from "@/components/ui/HeaderItem";
 import { Button } from "@/components/ui/Button";
 import { IconButton } from "@/components/ui/IconButton";
-import { PixelGridMasked } from "@/components/ui/PixelGrid";
 import { MobileMenu } from "./MobileMenu";
 
-/** 16px Brick®World mini-cube (Figma: 16px tail-icon with orange gradient) —
-    full 32px cube structure scaled 0.5, matching Figma's scaled instance. */
+/** 16px Brick®World mini-cube — цельный SVG (прод-ассет brickworld.io, Project=World) */
 function BwMiniIcon() {
   return (
-    <span className="relative block size-[16px] shrink-0">
-      <span className="absolute left-0 top-0 origin-top-left scale-50">
-        <span className="relative block size-[32px] overflow-clip rounded-[8px] border-2 border-solid border-[rgba(255,255,255,0.5)] bg-gradient-to-b from-[#ffb247] to-[#ff7700]">
-          <PixelGridMasked mode="fill" />
-          <span className="absolute" style={{ inset: "calc(18.75% - 0.63px)" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              className="absolute inset-0 block size-full max-w-none"
-              src="/assets/icons/bw-mini.svg"
-            />
-          </span>
-        </span>
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt=""
+      className="block size-[16px] shrink-0"
+      src="/assets/icons/solid/world-32.svg"
+    />
   );
 }
 
