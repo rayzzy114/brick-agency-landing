@@ -53,6 +53,9 @@ export function Hero() {
             className="relative mx-auto h-full max-w-[1200px] overflow-hidden"
             data-node-id="18329:361986"
           >
+            {/* poster = 1-й кадр webm: пока видео грузится (12MB) или не играет
+                (iOS без mp4), без него просвечивала подложка макета — клиент видел
+                «полоску» (жёсткий край glow-photo + яркий низ градиента) */}
             <video
               className="absolute inset-0 size-full object-cover"
               autoPlay
@@ -60,6 +63,7 @@ export function Hero() {
               muted
               playsInline
               preload="metadata"
+              poster="/assets/hero/main-banner-poster.jpg"
             >
               <source src="/assets/hero/main-banner.webm" type="video/webm" />
             </video>

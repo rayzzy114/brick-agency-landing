@@ -1,6 +1,5 @@
 // Figma: DevSection 18340:276605 (desktop 1440x688) / 18340:276604 (mobile 390x708)
 import { Reveal } from "@/components/motion/Reveal";
-import { Parallax } from "@/components/motion/Parallax";
 
 /* Слово-обёртка в текстовых строках («С серверами», «мы»…) */
 function Word({ children }: { children: React.ReactNode }) {
@@ -359,8 +358,10 @@ export function DevSection() {
             (80+528=608) → якорим к низу карточки (bottom-0), а не к верху секции,
             иначе при другой фактической высоте карточки появляется зазор.
             x: 668 от полосы 1440 = 548 от карточки (1200). Desktop only. */}
+        {/* БЕЗ Parallax: клиент требует робота ВПРИТЫК к кромке карточки всегда,
+            а параллакс при скролле поднимал его над краем (зазор) */}
         <div className="pointer-events-none absolute inset-0 z-10 hidden md:block">
-          <Parallax speed={-0.12} className="absolute inset-0">
+          <div className="absolute inset-0">
             <div className="absolute bottom-0 left-[548px] h-[564px] w-[794px]">
               <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -381,7 +382,7 @@ export function DevSection() {
                 />
               </div>
             </div>
-          </Parallax>
+          </div>
         </div>
         </Reveal>
       </div>
