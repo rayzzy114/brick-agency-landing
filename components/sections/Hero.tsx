@@ -35,7 +35,10 @@ export function Hero() {
               />
             </div>
           </div>
-          <div className="absolute left-[258px] top-[791px] h-[398px] w-[925px]">
+          {/* Figma top=791, но альфа-дыра экрана в webm начинается на 0.7px ВЫШЕ
+              верха фото (854.3 vs 855 на странице) — в щель просвечивал яркий
+              градиент тонкой зелёной линией; поднимаем на 3px, край дыры перекрыт */}
+          <div className="absolute left-[258px] top-[788px] h-[398px] w-[925px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt=""
