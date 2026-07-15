@@ -44,7 +44,7 @@ export function WorksSection() {
                   key={tab}
                   type="button"
                   onClick={() => setActiveTab(i)}
-                  className={`relative flex shrink-0 items-center justify-center gap-[4px] overflow-clip rounded-[8px] border border-solid border-rd-border-default p-[10px] transition-colors duration-200 ${
+                  className={`relative flex shrink-0 items-center justify-center gap-[4px] overflow-clip rounded-[8px] p-[10px] shadow-[inset_0_0_0_1px_var(--rd-border-default)] transition-colors duration-200 ${
                     active ? "" : "bg-rd-bg-state-ghost hover:bg-rd-bg-state-ghost-hover"
                   }`}
                 >
@@ -64,7 +64,7 @@ export function WorksSection() {
                     </span>
                   </span>
                   {active && (
-                    <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-rd-component" />
+                    <span className="pointer-events-none absolute inset-0 rounded-[inherit] [box-shadow:inset_0_0_0_1px_var(--rd-border-default),var(--rd-shadow-component)]" />
                   )}
                 </button>
               );

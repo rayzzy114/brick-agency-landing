@@ -15,7 +15,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`group relative flex w-[350px] flex-col items-start gap-[8px] rounded-[24px] border border-solid border-rd-border-default p-[8px] ${className ?? ""}`}
+      className={`group relative flex w-[350px] flex-col items-start gap-[8px] rounded-[24px] p-[8px] ${className ?? ""}`}
       data-node-id="18327:86060"
     >
       {/* bg: flat by default, lime-tinted gradient on hover (Figma Hover variant) */}
@@ -52,7 +52,7 @@ export function Card({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="flex shrink-0 items-center justify-center overflow-clip rounded-[6px] border border-solid border-rd-border-default bg-rd-bg-badge p-[4px] backdrop-blur-[2px] transition-colors duration-200 group-hover:bg-[var(--rd-chip-bg)]"
+              className="flex shrink-0 items-center justify-center overflow-clip rounded-[6px] bg-rd-bg-badge p-[4px] shadow-[inset_0_0_0_1px_var(--rd-border-default)] backdrop-blur-[2px] transition-colors duration-200 group-hover:bg-[var(--rd-chip-bg)]"
             >
               <span className="flex items-center px-[4px]">
                 <span className="whitespace-nowrap text-rd-xs font-medium text-rd-text-subtle transition-colors duration-200 [word-break:break-word] group-hover:text-rd-text-primary">
@@ -63,7 +63,8 @@ export function Card({
           ))}
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-rd-card" />
+      {/* stroke inside (как в Figma) + карточная тень одним box-shadow — border снаружи раздувал 375 → 377 */}
+      <div className="pointer-events-none absolute inset-0 rounded-[inherit] [box-shadow:inset_0_0_0_1px_var(--rd-border-default),var(--rd-shadow-card)]" />
     </div>
   );
 }

@@ -146,7 +146,7 @@ const SMOKE_LAYER_B: CSSProperties = {
 export function Footer() {
   return (
     <footer
-      className="relative flex w-full flex-col items-center border-t border-solid border-rd-border-default bg-rd-bg-default px-[16px] py-[40px] md:px-[24px] md:py-[48px]"
+      className="relative flex w-full flex-col items-center bg-rd-bg-default px-[16px] py-[40px] shadow-[inset_0_1px_0_0_var(--rd-border-default)] md:px-[24px] md:py-[48px]"
       data-name="Footer"
       data-node-id="18329:359529"
     >

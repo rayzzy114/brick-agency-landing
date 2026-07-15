@@ -55,7 +55,7 @@ export function Header() {
   return (
     <>
       <header
-        className="relative z-40 flex w-full flex-col items-center justify-center border-b border-solid border-rd-border-default bg-rd-bg-default px-[16px] py-[16px] backdrop-blur-[12px] md:px-[24px]"
+        className="relative z-40 flex w-full flex-col items-center justify-center bg-rd-bg-default px-[16px] py-[16px] shadow-[inset_0_-1px_0_0_var(--rd-border-default)] backdrop-blur-[12px] md:px-[24px]"
         data-node-id="18339:218443"
       >
         <div className="flex w-full max-w-[1200px] items-center justify-between lg:justify-normal">
