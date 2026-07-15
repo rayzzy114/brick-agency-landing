@@ -136,8 +136,9 @@ export function DevSection() {
 
       <div className="relative flex w-full flex-col items-center overflow-clip rounded-[20px] px-[16px] py-[40px] md:px-[24px] md:py-[80px]">
         {/* бордерная карточка */}
-        <Reveal y={40} className="w-full max-w-[1200px]">
-        <div className="relative flex w-full flex-col items-center gap-[24px] overflow-clip rounded-[20px] border border-solid border-rd-border-default">
+        <Reveal y={40} className="relative w-full max-w-[1200px]">
+        {/* рамка — inset-тенью (в Figma stroke inside: карточка ровно 528, border снаружи давал 530 и 2px-сдвиг робота) */}
+        <div className="relative flex w-full flex-col items-center gap-[24px] overflow-clip rounded-[20px] shadow-[inset_0_0_0_1px_var(--rd-border-default)]">
           <div className="relative flex w-full flex-col items-start gap-[16px] rounded-[20px] p-[16px] md:gap-[32px] md:py-[40px] md:pl-[40px] md:pr-[12px]">
             {/* фон: bg/default + радиальный градиент (plus-lighter) */}
             <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[20px]">
@@ -352,34 +353,37 @@ export function DevSection() {
             </div>
           </div>
         </div>
-        </Reveal>
-      </div>
 
-      {/* Figma: IllustrationDEV 18342:180699 — робот ПОВЕРХ карточки (page-level sibling);
-          один PNG двумя кропами, x=668 y=+44 от верха секции (обновлено в Figma 2026-07-15), desktop only */}
-      <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-full w-[1440px] -translate-x-1/2 md:block">
-        <Parallax speed={-0.12} className="absolute inset-0">
-          <div className="absolute left-[668px] top-[44px] h-[564px] w-[794px]">
-            <div className="pointer-events-none absolute inset-0 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
-                className="absolute left-0 top-0 h-[140.78%] w-full max-w-none"
-                src={`${A}/illustration-dev.png`}
-              />
+        {/* Figma: IllustrationDEV 18342:180699 — робот ПОВЕРХ карточки; в Figma низ
+            широкого кропа (44+564=608) РОВНО совпадает с нижней кромкой карточки
+            (80+528=608) → якорим к низу карточки (bottom-0), а не к верху секции,
+            иначе при другой фактической высоте карточки появляется зазор.
+            x: 668 от полосы 1440 = 548 от карточки (1200). Desktop only. */}
+        <div className="pointer-events-none absolute inset-0 z-10 hidden md:block">
+          <Parallax speed={-0.12} className="absolute inset-0">
+            <div className="absolute bottom-0 left-[548px] h-[564px] w-[794px]">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt=""
+                  className="absolute left-0 top-0 h-[140.78%] w-full max-w-none"
+                  src={`${A}/illustration-dev.png`}
+                />
+              </div>
             </div>
-          </div>
-          <div className="absolute left-[668px] top-[44px] h-[794px] w-[296px]">
-            <div className="pointer-events-none absolute inset-0 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
-                className="absolute left-0 top-0 h-full w-[268.24%] max-w-none"
-                src={`${A}/illustration-dev.png`}
-              />
+            <div className="absolute bottom-[-230px] left-[548px] h-[794px] w-[296px]">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt=""
+                  className="absolute left-0 top-0 h-full w-[268.24%] max-w-none"
+                  src={`${A}/illustration-dev.png`}
+                />
+              </div>
             </div>
-          </div>
-        </Parallax>
+          </Parallax>
+        </div>
+        </Reveal>
       </div>
     </section>
   );
