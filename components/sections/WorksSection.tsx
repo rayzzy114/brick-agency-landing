@@ -1,7 +1,7 @@
 // Figma: Frame 18329:361939 (desktop 1440x958) / 18337:196917 (mobile 390x1309) — works/portfolio grid
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -25,6 +25,12 @@ const WORKS = [
 
 export function WorksSection() {
   const [activeTab, setActiveTab] = useState(0);
+  const tabsScrollRef = useRef<HTMLDivElement>(null);
+  // старт прокрутки по центру — как симметричный клип ряда в Figma (390)
+  useEffect(() => {
+    const el = tabsScrollRef.current;
+    if (el) el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
+  }, []);
 
   return (
     <section
@@ -35,8 +41,14 @@ export function WorksSection() {
       <div className="flex w-full max-w-[1200px] flex-col items-center gap-[24px]">
         {/* UpString: tabs + «Посмотреть все работы» */}
         <div className="flex w-full flex-col items-start gap-[16px] md:flex-row md:justify-between md:gap-0">
-          {/* overflow-x-clip: в Figma ряд табов шире 390 и клипается краем фрейма */}
-          <div className="flex w-full items-center justify-center gap-[8px] overflow-x-clip md:w-auto md:justify-start md:overflow-visible">
+          {/* в Figma (390) ряд табов шире фрейма и клипается краем (симметрично);
+              на живой мобилке — прокрутка без скроллбара со стартом по центру:
+              при 390 выглядит 1:1 как макет, на 391..600 табы можно доскроллить */}
+          <div
+            ref={tabsScrollRef}
+            className="flex w-full items-center justify-start gap-[8px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:w-auto md:overflow-visible"
+          >
+            <div className="mx-auto flex shrink-0 items-center gap-[8px]">
             {TABS.map((tab, i) => {
               const active = i === activeTab;
               return (
@@ -69,6 +81,7 @@ export function WorksSection() {
                 </button>
               );
             })}
+            </div>
           </div>
           {/* hover (кит 34:852 Soft/Hover): bg → bg/state/soft-hover */}
           <button

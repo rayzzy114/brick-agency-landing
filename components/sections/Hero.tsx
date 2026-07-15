@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function Hero() {
+  // моб. высота = контент + 36px «мёртвой зоны» (Figma FirstBlock 420 при контенте 384):
+  // авто вместо фикса, чтобы на 391..767 не рос пустой зелёный низ
   return (
-    <section className="relative h-[420px] w-full overflow-clip md:h-[1229px]" id="hero">
+    <section className="relative w-full overflow-clip pb-[36px] md:h-[1229px] md:pb-0" id="hero">
       {/* Bg — mobile: gradient only (390x410, offset 10px, r-24); desktop: full scene, r-b-64 */}
       <div
-        className="absolute inset-x-0 top-[10px] h-[410px] overflow-clip rounded-[24px] bg-[linear-gradient(to_bottom,#0a0a0a_0%,#102804_49.328%,#3d5500_100%)] md:inset-0 md:top-0 md:h-auto md:rounded-none md:rounded-b-[64px]"
+        className="absolute inset-x-0 bottom-0 top-[10px] overflow-clip rounded-[24px] bg-[linear-gradient(to_bottom,#0a0a0a_0%,#102804_49.328%,#3d5500_100%)] md:inset-0 md:top-0 md:rounded-none md:rounded-b-[64px]"
         data-node-id="18329:361982"
       >
         {/* inner 1440 strip, centered — matches the 1920 Figma variant exactly */}
