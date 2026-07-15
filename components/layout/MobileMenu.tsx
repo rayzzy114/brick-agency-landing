@@ -229,15 +229,24 @@ function MvpImage() {
 export function MobileMenu({
   open,
   onClose,
+  onDesktopPanelEnter,
+  onDesktopPanelLeave,
 }: {
   open: boolean;
   onClose: () => void;
+  /** держит hover-открытое мега-меню, пока курсор над панелью (десктоп) */
+  onDesktopPanelEnter?: () => void;
+  onDesktopPanelLeave?: () => void;
 }) {
   if (!open) return null;
   return (
     <div className="relative z-30 w-full">
       {/* Desktop mega-dropdown — Figma: HeaderMainMenu Property1=Default (870px) */}
-      <div className="absolute left-1/2 top-0 hidden -translate-x-1/2 lg:block">
+      <div
+        className="absolute left-1/2 top-0 hidden -translate-x-1/2 lg:block"
+        onMouseEnter={onDesktopPanelEnter}
+        onMouseLeave={onDesktopPanelLeave}
+      >
         <div
           className="relative flex items-start overflow-clip rounded-[8px] border-[0.5px] border-solid border-[rgba(255,255,255,0.25)] bg-[rgba(26,26,26,0.8)] backdrop-blur-[30px]"
           data-node-id="18327:86084"

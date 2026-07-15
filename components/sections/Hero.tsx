@@ -4,7 +4,6 @@
 import { LandingBadge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { Magnetic } from "@/components/motion/Magnetic";
 
 export function Hero() {
   return (
@@ -44,10 +43,14 @@ export function Hero() {
               src="/assets/hero/glow-photo.png"
             />
           </div>
-          {/* Figma "qqqqqqqqqq 1" 1200x732 — видео-заливка; webm пока единственный сорс,
-              mp4/h264 для iOS Safari добавится позже */}
+        </div>
+        {/* Figma "qqqqqqqqqq 1" 1200x732 — видео-заливка; webm пока единственный сорс,
+            mp4/h264 для iOS Safari добавится позже.
+            Привязано к контент-сетке (mx-auto max-w-1200 + поля 24px), а не к полосе 1440:
+            на ширинах <1248px полоса давала вылет видео за сетку (на 1024 — на 88px). */}
+        <div className="absolute inset-x-[24px] top-[497px] hidden h-[732px] md:block">
           <div
-            className="absolute left-[120px] top-[497px] h-[732px] w-[1200px] overflow-hidden"
+            className="relative mx-auto h-full max-w-[1200px] overflow-hidden"
             data-node-id="18329:361986"
           >
             <video
@@ -97,16 +100,14 @@ export function Hero() {
             </Reveal>
           </div>
           <Reveal mode="load" delay={0.36}>
-            <Magnetic>
-              <Button
-                variant="primary"
-                size="lg"
-                href="#contact"
-                leadIcon="/assets/hero/cta-lead.svg"
-              >
-                Построить проект
-              </Button>
-            </Magnetic>
+            <Button
+              variant="primary"
+              size="lg"
+              href="#contact"
+              leadIcon="/assets/hero/cta-lead.svg"
+            >
+              Построить проект
+            </Button>
           </Reveal>
         </div>
       </div>

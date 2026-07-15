@@ -2,6 +2,8 @@ import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  // hover: применяется только на устройствах с настоящим ховером (фикс «залипшего» ховера на таче)
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       screens: {
@@ -15,6 +17,11 @@ export default {
         'rd-bg-state-ghost': 'var(--rd-bg-state-ghost)',
         'rd-bg-state-secondary': 'var(--rd-bg-state-secondary)',
         'rd-bg-state-soft': 'var(--rd-bg-state-soft)',
+        'rd-bg-state-primary-hover': 'var(--rd-bg-state-primary-hover)',
+        'rd-bg-state-secondary-hover': 'var(--rd-bg-state-secondary-hover)',
+        'rd-bg-state-soft-hover': 'var(--rd-bg-state-soft-hover)',
+        'rd-bg-state-ghost-hover': 'var(--rd-bg-state-ghost-hover)',
+        'rd-orange-hover': 'var(--rd-orange-hover)',
         'rd-bg-badge': 'var(--rd-bg-badge)',
         'rd-bg-badge-orange': 'var(--rd-bg-badge-orange)',
         'rd-lime': 'var(--rd-lime)',

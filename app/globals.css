@@ -43,6 +43,15 @@
   --rd-logo-grad-from: #c7ff47;
   --rd-logo-grad-to: #87c200;
 
+  /* hover states — Figma Button kit 34:852 (State=Hover, sm/Rounded) */
+  --rd-bg-state-primary-hover: #c7ff47; /* bg/state/primary-hover */
+  --rd-bg-state-secondary-hover: #ffffff1a; /* bg/state/secondary-hover rgba(255,255,255,0.1) */
+  --rd-bg-state-soft-hover: #ffffff1a; /* bg/state/soft-hover rgba(255,255,255,0.1) */
+  --rd-bg-state-ghost-hover: #ffffff14; /* bg/state/ghost-hover rgba(255,255,255,0.08) */
+  /* orange primary hover — в ките только lime; аналог primary-hover (флэт светлее strong)
+     для оранжевой CTA DevSection */
+  --rd-orange-hover: #ffa155;
+
   /* card (Figma Card 18327:86059) */
   --rd-card-hover-grad-from: #35532e;
   --rd-chip-bg: #ffffff1f; /* rgba(255,255,255,0.12) tag chip on hover */

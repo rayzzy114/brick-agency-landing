@@ -44,7 +44,7 @@ export function HeaderItem({
           className={`whitespace-nowrap text-center text-rd-sm ${
             active
               ? "font-medium text-rd-text-default"
-              : "font-normal text-rd-text-subtle group-hover:text-rd-text-default"
+              : "font-normal text-rd-text-subtle transition-colors duration-150 group-hover:text-rd-text-default"
           }`}
         >
           {label}

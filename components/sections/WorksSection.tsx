@@ -44,8 +44,8 @@ export function WorksSection() {
                   key={tab}
                   type="button"
                   onClick={() => setActiveTab(i)}
-                  className={`relative flex shrink-0 items-center justify-center gap-[4px] overflow-clip rounded-[8px] border border-solid border-rd-border-default p-[10px] ${
-                    active ? "" : "bg-rd-bg-state-ghost"
+                  className={`relative flex shrink-0 items-center justify-center gap-[4px] overflow-clip rounded-[8px] border border-solid border-rd-border-default p-[10px] transition-colors duration-200 ${
+                    active ? "" : "bg-rd-bg-state-ghost hover:bg-rd-bg-state-ghost-hover"
                   }`}
                 >
                   {active && (
@@ -56,7 +56,7 @@ export function WorksSection() {
                   )}
                   <span className="relative flex items-center justify-center px-[2px]">
                     <span
-                      className={`whitespace-nowrap text-rd-sm font-medium [word-break:break-word] ${
+                      className={`whitespace-nowrap text-rd-sm font-medium transition-colors duration-200 [word-break:break-word] ${
                         active ? "text-rd-text-default" : "text-rd-text-muted"
                       }`}
                     >
@@ -70,9 +70,10 @@ export function WorksSection() {
               );
             })}
           </div>
+          {/* hover (кит 34:852 Soft/Hover): bg → bg/state/soft-hover */}
           <button
             type="button"
-            className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] md:w-auto"
+            className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover md:w-auto"
           >
             <span className="relative flex items-center justify-center px-[2px]">
               <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-subtle [word-break:break-word]">

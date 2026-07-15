@@ -45,22 +45,18 @@ export function Card({
           </p>
         </div>
         <div className="relative flex shrink-0 items-center gap-[4px]">
+          {/* Один чип с фиксированной геометрией (default-вариант 18329:362401);
+              по hover карточки меняются ТОЛЬКО цвета (bg → rgba(255,255,255,0.12),
+              текст → #f3f3f3) — раньше hover подменял чип другим (иные паддинги/
+              радиус/шрифт) и чипы «дёргались» */}
           {tags.map((tag) => (
-            <span key={tag} className="relative shrink-0">
-              {/* default chip */}
-              <span className="flex items-center justify-center overflow-clip rounded-[6px] border border-solid border-rd-border-default bg-rd-bg-badge p-[4px] backdrop-blur-[2px] group-hover:hidden">
-                <span className="flex items-center px-[4px]">
-                  <span className="whitespace-nowrap text-rd-xs font-medium text-rd-text-subtle [word-break:break-word]">
-                    {tag}
-                  </span>
-                </span>
-              </span>
-              {/* hover chip */}
-              <span className="hidden items-center justify-center overflow-clip rounded-[8px] bg-[var(--rd-chip-bg)] px-[6px] py-[2px] group-hover:flex">
-                <span className="flex items-center justify-center px-[2px]">
-                  <span className="whitespace-nowrap text-center text-[12px] font-semibold leading-[20px] text-rd-text-primary [word-break:break-word]">
-                    {tag}
-                  </span>
+            <span
+              key={tag}
+              className="flex shrink-0 items-center justify-center overflow-clip rounded-[6px] border border-solid border-rd-border-default bg-rd-bg-badge p-[4px] backdrop-blur-[2px] transition-colors duration-200 group-hover:bg-[var(--rd-chip-bg)]"
+            >
+              <span className="flex items-center px-[4px]">
+                <span className="whitespace-nowrap text-rd-xs font-medium text-rd-text-subtle transition-colors duration-200 [word-break:break-word] group-hover:text-rd-text-primary">
+                  {tag}
                 </span>
               </span>
             </span>

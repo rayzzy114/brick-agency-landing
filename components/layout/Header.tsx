@@ -1,7 +1,7 @@
 // Figma: Header Type=Default, Phone=False 17047:80748 (instance 18339:218443) / Phone=True (instance 18337:195018)
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
 import { HeaderItem } from "@/components/ui/HeaderItem";
 import { Button } from "@/components/ui/Button";
@@ -40,6 +40,28 @@ const NAV = [
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  // Десктоп: мега-меню открывается по наведению на Brick®World и живёт, пока курсор
+  // над кнопкой ИЛИ над панелью; закрытие с задержкой ~200мс, чтобы не мигало при
+  // перелёте курсора между кнопкой и панелью. Клик оставлен как toggle (тач/клавиатура).
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+  const openMenu = useCallback(() => {
+    cancelClose();
+    setMenuOpen(true);
+  }, [cancelClose]);
+  const scheduleClose = useCallback(() => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setMenuOpen(false), 200);
+  }, [cancelClose]);
+  useEffect(() => cancelClose, [cancelClose]);
+  // true, пока меню удерживается ховером мыши — клик мышью по кнопке в этом
+  // состоянии не должен схлопывать меню (toggle остаётся для тача/клавиатуры)
+  const hoverHeld = useRef(false);
 
   return (
     <>
@@ -59,13 +81,28 @@ export function Header() {
                 <button
                   key={item.label}
                   type="button"
-                  onClick={() => setMenuOpen((v) => !v)}
+                  onClick={() => {
+                    cancelClose();
+                    if (hoverHeld.current) return; // уже открыто ховером — не схлопывать
+                    setMenuOpen((v) => !v);
+                  }}
+                  onPointerEnter={(e) => {
+                    if (e.pointerType !== "mouse") return;
+                    hoverHeld.current = true;
+                    openMenu();
+                  }}
+                  onPointerLeave={(e) => {
+                    if (e.pointerType !== "mouse") return;
+                    hoverHeld.current = false;
+                    scheduleClose();
+                  }}
                   aria-expanded={menuOpen}
                   className="group relative flex items-center justify-center gap-[4px] overflow-clip rounded-[6px] bg-rd-bg-state-ghost px-[10px] py-[6px]"
                 >
                   <BwMiniIcon />
                   <span className="flex items-center justify-center px-[2px]">
-                    <span className="whitespace-nowrap text-center text-rd-sm font-normal text-rd-text-subtle group-hover:text-rd-text-default">
+                    {/* hover (Figma 17003:82886): только текст → text/default, без фона */}
+                    <span className="whitespace-nowrap text-center text-rd-sm font-normal text-rd-text-subtle transition-colors duration-150 group-hover:text-rd-text-default">
                       {item.label}
                     </span>
                   </span>
@@ -133,7 +170,12 @@ export function Header() {
           </div>
         </div>
       </header>
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        onDesktopPanelEnter={openMenu}
+        onDesktopPanelLeave={scheduleClose}
+      />
     </>
   );
 }

@@ -20,9 +20,12 @@ function TabDefault({
   active?: boolean;
 }) {
   return (
+    // relative обязателен: соседний фон бара — absolute (positioned) и без него
+    // перекрывал непозиционированные подписи табов (иконки были видны только потому,
+    // что их обёртки сами relative)
     <a
       href={href}
-      className="flex min-w-px flex-[1_0_0] flex-col items-center justify-center gap-[4px] overflow-clip py-[8px]"
+      className="relative flex min-w-px flex-[1_0_0] flex-col items-center justify-center gap-[4px] overflow-clip py-[8px]"
       data-name="Tab"
     >
       {iconInset ? (

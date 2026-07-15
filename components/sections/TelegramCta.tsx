@@ -1,7 +1,6 @@
 // Figma: 18329:363117 (desktop 1440x500) / 18337:197575 (mobile 390x899)
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { Magnetic } from "@/components/motion/Magnetic";
 
 const MASK_DESKTOP: React.CSSProperties = {
   maskImage: "url(/assets/sections/community-mask-desktop.svg)",
@@ -22,7 +21,11 @@ const MASK_MOBILE: React.CSSProperties = {
 };
 
 /* Figma: Group 18329:363118 — зелёное свечение на уровне фрейма (page y=3091, за секциями CTA/Reviews).
-   Координаты страницы переведены в координаты секции (cta top = 3543 → top -452). */
+   Координаты страницы переведены в координаты секции (cta top = 3543 → top -452).
+   В видимой области макета (скрин CTA) свечение — только мягкая аврора (Ellipse 26 +
+   широкий луч 28 + overlay-группы); узкие лучи 27/29/30/31/32 в макете скрыты
+   футером/вне вьюпорта, а у нас (codegen потерял транформ группы) ложились
+   яркими полосами ПОВЕРХ телефона и робота — убраны. */
 function GreenGlow() {
   const A = "/assets/sections";
   return (
@@ -40,56 +43,6 @@ function GreenGlow() {
                 <div className="absolute inset-[-48.88%_-171.05%]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-26.svg`} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[51.29px] top-0 flex h-[826.115px] w-[512.048px] items-center justify-center mix-blend-plus-lighter">
-            <div className="flex-none rotate-[149deg]">
-              <div className="relative h-[946.588px] w-[28.604px]">
-                <div className="absolute inset-[-1.96%_-64.7%]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-29.svg`} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[390.24px] top-[6.93px] flex h-[832.484px] w-[522.648px] items-center justify-center mix-blend-plus-lighter">
-            <div className="flex-none rotate-[149deg]">
-              <div className="relative h-[946.588px] w-[40.969px]">
-                <div className="absolute inset-[-1.96%_-45.17%]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-30.svg`} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[95.91px] top-[167.65px] flex h-[842.754px] w-[539.74px] items-center justify-center mix-blend-plus-lighter">
-            <div className="flex-none rotate-[149deg]">
-              <div className="relative h-[946.588px] w-[60.91px]">
-                <div className="absolute inset-[-3.91%_-60.77%]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-27.svg`} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[43.24px] top-[336.17px] flex h-[544.215px] w-[387.796px] items-center justify-center mix-blend-plus-lighter">
-            <div className="flex-none rotate-[149deg]">
-              <div className="relative h-[568.201px] w-[111.005px]">
-                <div className="absolute inset-[-10.99%_-56.27%]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-31.svg`} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[292.28px] top-[336.17px] flex h-[544.215px] w-[387.796px] items-center justify-center mix-blend-plus-lighter">
-            <div className="flex-none rotate-[149deg]">
-              <div className="relative h-[568.201px] w-[111.005px]">
-                <div className="absolute inset-[-10.99%_-56.27%]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-32.svg`} />
                 </div>
               </div>
             </div>
@@ -149,16 +102,15 @@ export function TelegramCta() {
           </div>
           <div className="flex w-full flex-col items-start gap-[8px] md:w-auto md:flex-row">
             {/* primary label differs per breakpoint in Figma (чат on desktop, канал on mobile) */}
-            <Magnetic className="w-full md:w-auto">
-              <Button variant="primary" size="lg" className="w-full md:w-auto">
-                <span className="md:hidden">Перейти в Telegram-канал</span>
-                <span className="hidden md:inline">Перейти в Telegram-чат</span>
-              </Button>
-            </Magnetic>
-            {/* secondary: bg/state/soft + text/subtle, no inner shadow — differs from ui/Button secondary */}
+            <Button variant="primary" size="lg" className="w-full md:w-auto">
+              <span className="md:hidden">Перейти в Telegram-канал</span>
+              <span className="hidden md:inline">Перейти в Telegram-чат</span>
+            </Button>
+            {/* secondary: bg/state/soft + text/subtle, no inner shadow — differs from ui/Button secondary;
+                hover (кит 34:852 Soft/Hover): bg → bg/state/soft-hover */}
             <button
               type="button"
-              className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] md:w-auto"
+              className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[14px] py-[10px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover md:w-auto"
             >
               <span className="flex items-center justify-center px-[2px]">
                 <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-subtle [word-break:break-word]">
@@ -169,8 +121,9 @@ export function TelegramCta() {
           </div>
         </Reveal>
       </div>
-      {/* Illustration — masked photo, fades out via alpha gradient */}
-      <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-[1440px] -translate-x-1/2 md:block">
+      {/* Illustration — masked photo, fades out via alpha gradient;
+          z-[1] — строго выше GreenGlow (z-0), свечение только под иллюстрацией */}
+      <div className="pointer-events-none absolute left-1/2 top-0 z-[1] hidden h-full w-[1440px] -translate-x-1/2 md:block">
         <div
           className="absolute left-[839px] top-0 h-[625px] w-[560px]"
           style={MASK_DESKTOP}

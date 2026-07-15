@@ -282,13 +282,18 @@ export function DevSection() {
 
             {/* Actions */}
             <div className="relative flex w-full flex-col items-center gap-[8px] md:w-auto md:flex-row md:items-start md:justify-center">
+              {/* hover — аналог кита 34:852 Primary/Hover (флэт светлее вместо градиента) */}
               <button
                 type="button"
-                className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] px-[14px] py-[10px] md:w-auto"
+                className="group relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] px-[14px] py-[10px] md:w-auto"
               >
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-0 rounded-[6px] bg-gradient-to-t from-rd-orange to-rd-orange-strong"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-[6px] bg-rd-orange-hover opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                 />
                 <span className="relative size-[18px] shrink-0 overflow-clip">
                   <span className="absolute inset-[20.15%_15.2%_12.35%_3.35%]">
@@ -305,7 +310,7 @@ export function DevSection() {
               </button>
               <button
                 type="button"
-                className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-[rgba(10,10,10,0.4)] px-[14px] py-[10px] md:w-auto md:bg-rd-bg-state-soft"
+                className="relative flex w-full items-center justify-center gap-[6px] overflow-clip rounded-[6px] bg-[rgba(10,10,10,0.4)] px-[14px] py-[10px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover md:w-auto md:bg-rd-bg-state-soft md:hover:bg-rd-bg-state-soft-hover"
               >
                 <span className="relative flex items-center justify-center px-[2px]">
                   <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-subtle [word-break:break-word]">
@@ -343,10 +348,10 @@ export function DevSection() {
       </div>
 
       {/* Figma: IllustrationDEV 18342:180699 — робот ПОВЕРХ карточки (page-level sibling);
-          один PNG двумя кропами, x=668 y=+60 от верха секции, desktop only */}
+          один PNG двумя кропами, x=668 y=+44 от верха секции (обновлено в Figma 2026-07-15), desktop only */}
       <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-full w-[1440px] -translate-x-1/2 md:block">
         <Parallax speed={-0.12} className="absolute inset-0">
-          <div className="absolute left-[668px] top-[60px] h-[564px] w-[794px]">
+          <div className="absolute left-[668px] top-[44px] h-[564px] w-[794px]">
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -356,7 +361,7 @@ export function DevSection() {
               />
             </div>
           </div>
-          <div className="absolute left-[668px] top-[60px] h-[794px] w-[296px]">
+          <div className="absolute left-[668px] top-[44px] h-[794px] w-[296px]">
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

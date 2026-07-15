@@ -2,7 +2,7 @@
 import { CSSProperties, ReactNode } from "react";
 import { Logo, LogoIcon } from "@/components/ui/Logo";
 import { BrickWorldIcon } from "@/components/ui/BrickWorldIcon";
-import { FooterGameBlock } from "./FooterGame";
+import { FooterGameBlock, ReleaseHint } from "./FooterGame";
 
 /** 16px mini-cube: full 32px cube structure scaled 0.5, matching Figma's
     scaled instances (same convention as BwMiniIcon in Header.tsx). */
@@ -79,14 +79,6 @@ function ContactsBlock({ className }: { className: string }) {
       <p className="w-full font-normal text-rd-text-subtle">Telegram-канал</p>
       <p className="w-full font-normal text-rd-text-subtle">Telegram</p>
     </div>
-  );
-}
-
-function ReleaseHint() {
-  return (
-    <p className="w-[164px] text-rd-xs font-normal text-rd-text-hint [word-break:break-word]">
-      *нажмите, чтобы отпустить
-    </p>
   );
 }
 

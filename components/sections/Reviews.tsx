@@ -96,9 +96,10 @@ export function Reviews() {
                   {review.text}
                 </p>
               </div>
+              {/* hover (кит 34:852 Soft/Hover): bg → bg/state/soft-hover */}
               <button
                 type="button"
-                className="relative flex items-center justify-center gap-[4px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[10px] py-[6px]"
+                className="relative flex items-center justify-center gap-[4px] overflow-clip rounded-[6px] bg-rd-bg-state-soft px-[10px] py-[6px] transition-colors duration-200 hover:bg-rd-bg-state-soft-hover"
               >
                 <span className="flex items-center justify-center px-[2px]">
                   <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-subtle [word-break:break-word]">
