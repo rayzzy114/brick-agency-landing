@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   title: "Brick Agency",
   description:
     "Brick Agency — разработка цифровых продуктов: веб, дизайн, интеграции.",
+  openGraph: {
+    title: "Brick Agency",
+    description:
+      "Brick Agency — разработка цифровых продуктов: веб, дизайн, интеграции.",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
