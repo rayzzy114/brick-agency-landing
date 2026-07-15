@@ -191,7 +191,7 @@ export function DevSection() {
             </div>
 
             {/* Заголовок */}
-            <h2 className="relative w-full text-[48px] font-semibold leading-[48px] tracking-[-0.96px] text-rd-text-default [word-break:break-word] md:w-auto md:whitespace-nowrap md:text-[56px] md:font-bold md:leading-[56px] md:tracking-[-1.12px] md:text-rd-text-primary">
+            <h2 className="relative w-full text-[36px] font-semibold leading-[40px] tracking-[-0.72px] text-rd-text-default [word-break:break-word] md:w-auto md:whitespace-nowrap md:text-[56px] md:font-bold md:leading-[56px] md:tracking-[-1.12px] md:text-rd-text-primary">
               Делаем сегодня то,
               <br aria-hidden className="hidden md:block" /> что нужно завтра
             </h2>

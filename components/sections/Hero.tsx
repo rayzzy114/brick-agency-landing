@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-clip md:h-[1229px]" id="hero">
+    <section className="relative h-[420px] w-full overflow-clip md:h-[1229px]" id="hero">
       {/* Bg — mobile: gradient only (390x410, offset 10px, r-24); desktop: full scene, r-b-64 */}
       <div
         className="absolute inset-x-0 top-[10px] h-[410px] overflow-clip rounded-[24px] bg-[linear-gradient(to_bottom,#0a0a0a_0%,#102804_49.328%,#3d5500_100%)] md:inset-0 md:top-0 md:h-auto md:rounded-none md:rounded-b-[64px]"
@@ -75,18 +75,18 @@ export function Hero() {
           </Reveal>
           <div className="flex w-full flex-col items-center gap-[16px] text-center [word-break:break-word]">
             <Reveal mode="load" delay={0.12} className="w-full">
-            <h1 className="w-full font-semibold tracking-[-0.96px] text-rd-text-default md:font-bold md:tracking-[-1.12px] md:text-rd-text-primary">
-              <span className="block whitespace-nowrap text-[48px] leading-[48px] md:text-[56px] md:leading-[56px]">
+            <h1 className="w-full font-semibold tracking-[-0.72px] text-rd-text-default md:font-bold md:tracking-[-1.12px] md:text-rd-text-primary">
+              <span className="block whitespace-nowrap text-[36px] leading-[40px] md:text-[56px] md:leading-[56px]">
                 Строим успех
               </span>
-              <span className="block whitespace-nowrap text-[48px] leading-[48px] md:text-[56px] md:leading-[56px]">
+              <span className="block whitespace-nowrap text-[36px] leading-[40px] md:text-[56px] md:leading-[56px]">
                 вашего проекта
               </span>
             </h1>
             </Reveal>
             <Reveal mode="load" delay={0.24} className="w-full flex justify-center">
             <p className="w-full text-rd-text-subtle md:w-[584px]">
-              <span className="text-[18px] leading-[28px]">
+              <span className="text-[16px] leading-[24px] md:text-[18px] md:leading-[28px]">
                 Кирпичик за кирпичиком воплощаем ваши идеи в решения с
                 инновациями{" "}
               </span>

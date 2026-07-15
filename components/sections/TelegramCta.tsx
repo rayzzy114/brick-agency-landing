@@ -91,7 +91,7 @@ export function TelegramCta() {
       <div className="relative flex w-full max-w-[660px] md:max-w-[1200px] md:items-center">
         <Reveal className="flex w-full flex-col items-start justify-center gap-[40px] md:min-w-px md:max-w-[660px] md:flex-1">
           <div className="flex w-full flex-col items-start justify-center gap-[16px] text-center md:text-left [word-break:break-word]">
-            <h2 className="w-full text-rd-4xl font-semibold tracking-[-0.72px] text-rd-text-default">
+            <h2 className="w-full text-[30px] font-semibold leading-[36px] tracking-[-0.6px] text-rd-text-default md:text-rd-4xl md:tracking-[-0.72px]">
               Узнавайте все новости о нашем проекте первым а также заходи в чат
               если ты дизайнер а не лошок
             </h2>

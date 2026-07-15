@@ -45,7 +45,7 @@ export function Reviews() {
           <h2 className="hidden w-full text-center text-rd-4xl font-semibold tracking-[-0.72px] text-rd-text-default md:block [word-break:break-word]">
             Мы делаем - о нас говорят
           </h2>
-          <h2 className="w-full text-center text-rd-4xl font-semibold tracking-[-0.72px] text-rd-text-default md:hidden [word-break:break-word]">
+          <h2 className="w-full text-center text-[30px] font-semibold leading-[36px] tracking-[-0.6px] text-rd-text-default md:hidden [word-break:break-word]">
             {"Мы делаем "}
             <br />
             и о нас говорят
@@ -53,7 +53,7 @@ export function Reviews() {
           <p className="hidden w-full text-center text-rd-lg font-normal text-rd-text-subtle md:block [word-break:break-word]">
             Отзывы настоящих клиентов не дадут соврать
           </p>
-          <p className="w-full text-center text-rd-lg font-normal text-rd-text-subtle md:hidden [word-break:break-word]">
+          <p className="w-full text-center text-[16px] font-normal leading-[24px] text-rd-text-subtle md:hidden [word-break:break-word]">
             Отзывы настоящих клиентов
             <br />
             не дадут соврать
