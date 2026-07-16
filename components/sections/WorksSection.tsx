@@ -1,7 +1,7 @@
 // Figma: Frame 18329:361939 (desktop 1440x958) / 18337:196917 (mobile 390x1309) — works/portfolio grid
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -16,7 +16,7 @@ const TABS = [
 const WORKS = [
   1, 2, 3, 4, 5, 6,
 ].map(() => ({
-  image: "/assets/sections/work-futurix.png",
+  image: "/assets/sections/work-futurix.webp",
   title: "FuturiX Solutions Website",
   description:
     "A fully composable atomic design overhaul that streamlined workflows, reduced friction, ",
@@ -25,7 +25,6 @@ const WORKS = [
 
 export function WorksSection() {
   const [activeTab, setActiveTab] = useState(0);
-  const tabsScrollRef = useRef<HTMLDivElement>(null);
 
   return (
     <section
@@ -40,7 +39,6 @@ export function WorksSection() {
               мобилке — прокрутка без скроллбара с начала ряда: АКТИВНЫЙ таб всегда
               виден целиком (центрированный клип резал его посередине буквы) */}
           <div
-            ref={tabsScrollRef}
             className="flex w-full items-center justify-start gap-[8px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:w-auto md:overflow-visible"
           >
             <div className="mx-auto flex shrink-0 items-center gap-[8px]">
@@ -90,7 +88,7 @@ export function WorksSection() {
             </span>
             {/* кит Icons 28:27: arrow-right-up (Fill, 24px frame), белый 50% */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="relative block size-[18px] shrink-0"
               src="/assets/icons/kit/arrow-right-up-fill.svg"

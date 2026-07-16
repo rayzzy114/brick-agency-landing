@@ -11,7 +11,7 @@ export function BrickWorldIcon({
 }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <img loading="lazy" decoding="async"
       alt=""
       className={`block shrink-0 ${className ?? "size-[32px]"}`}
       src={`/assets/icons/solid/${project}-32.svg`}

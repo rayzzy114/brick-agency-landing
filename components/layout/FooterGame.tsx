@@ -74,9 +74,22 @@ export function ReleaseHint() {
   );
 }
 
+/* обе ветки футера (desktop lg:flex / mobile lg:hidden) в DOM одновременно —
+   без этого гейта жили ДВА canvas + два rAF-цикла; монтируем только нужный */
+let lgMq: MediaQueryList | null = null;
+const lgQuery = () => (lgMq ??= window.matchMedia("(min-width: 1024px)"));
+function subscribeLg(cb: () => void) {
+  const mq = lgQuery();
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+}
+const readLg = () => lgQuery().matches;
+
 export function FooterGameBlock({ variant }: { variant: "desktop" | "mobile" }) {
   const [score, setScore] = useState(0);
   const record = useSyncExternalStore(subscribeRecord, readRecord, () => 0);
+  const isLg = useSyncExternalStore(subscribeLg, readLg, () => false);
+  if (variant === "desktop" ? !isLg : isLg) return null;
   return (
     <>
       <FooterCounter score={score} record={Math.max(record, score)} />

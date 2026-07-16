@@ -27,7 +27,7 @@ export function LandingBadge({
       <div className="relative h-[16px] w-0 shrink-0">
         <div className="absolute inset-y-0 -inset-x-[0.5px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="block size-full max-w-none"
             src="/assets/icons/badge-separator.svg"
@@ -38,7 +38,7 @@ export function LandingBadge({
         {label}
       </p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <img loading="lazy" decoding="async"
         alt=""
         className="relative block size-[16px] shrink-0"
         src={tailIcon}

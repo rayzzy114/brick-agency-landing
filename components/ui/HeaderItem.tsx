@@ -4,7 +4,7 @@ function TailIcon() {
   return (
     // кит Icons 28:27: arrow-down-s (24px frame), белый 50% — рендерится в 16px
     // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <img loading="lazy" decoding="async"
       alt=""
       className="block size-[16px] shrink-0"
       src="/assets/icons/kit/arrow-down-s.svg"

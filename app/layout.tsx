@@ -9,15 +9,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rayzzy114.github.io/brick-agency-landing/"),
   title: "Brick Agency",
   description:
     "Brick Agency — разработка цифровых продуктов: веб, дизайн, интеграции.",
+  // GH Pages — стейджинг: не индексировать, пока лендинг не переехал на боевой
+  // домен клиента (тексты-рыбы не должны попасть в выдачу под брендом)
+  robots: { index: false, follow: false },
   openGraph: {
     title: "Brick Agency",
     description:
       "Brick Agency — разработка цифровых продуктов: веб, дизайн, интеграции.",
     locale: "ru_RU",
     type: "website",
+    images: ["/og-image.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brick Agency",
+    description:
+      "Brick Agency — разработка цифровых продуктов: веб, дизайн, интеграции.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -29,6 +41,10 @@ export default function RootLayout({
   return (
     <html lang="ru" className={inter.variable}>
       <body className="bg-rd-bg-default font-sans text-rd-text-default antialiased">
+        {/* без JS Reveal-обёртки оставались с SSR-инлайном opacity:0 — контент невидим */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         {children}
       </body>
     </html>

@@ -32,11 +32,11 @@ function Tech({
         {iconInset ? (
           <div className="absolute" style={{ inset: iconInset }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={icon} />
+            <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={icon} />
           </div>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="absolute inset-0 block size-full max-w-none"
             src={icon}
@@ -77,7 +77,7 @@ function Ray({
         <div className={`relative ${boxClass}`}>
           <div className={`absolute ${insetClass}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={src} />
+            <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={src} />
           </div>
         </div>
       </div>
@@ -95,19 +95,19 @@ export function DevSection() {
         <div className="absolute left-[101px] top-[314px] h-[305px] w-[1239px] mix-blend-plus-lighter">
           <div className="absolute inset-[-5.91%_-1.25%]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-desktop.svg`} />
+            <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-desktop.svg`} />
           </div>
         </div>
         <div className="absolute left-[108px] top-[314px] h-[303px] w-[1225px] mix-blend-plus-lighter">
           <div className="absolute inset-[-20.04%_-4.75%]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-desktop.svg`} />
+            <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-desktop.svg`} />
           </div>
         </div>
         <div className="absolute left-[114px] top-[317px] h-[297px] w-[1215px] mix-blend-plus-lighter">
           <div className="absolute inset-[-3.24%_-0.65%]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-desktop.svg`} />
+            <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-desktop.svg`} />
           </div>
         </div>
       </div>
@@ -124,19 +124,19 @@ export function DevSection() {
           <div className="absolute inset-0 mix-blend-plus-lighter">
             <div className="absolute inset-[-3.17%_-4.68%_-3.17%_-4.55%]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-mobile.svg`} />
+              <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-1-mobile.svg`} />
             </div>
           </div>
           <div className="absolute bottom-[3.7px] left-[2.1px] right-[2.1px] top-0 mix-blend-plus-lighter">
             <div className="absolute inset-[-10.74%_-16.25%]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-mobile.svg`} />
+              <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-2-mobile.svg`} />
             </div>
           </div>
           <div className="absolute bottom-[9.4px] left-[3.9px] right-[3.3px] top-[5.6px] mix-blend-plus-lighter">
             <div className="absolute inset-[-1.74%_-2.37%_-1.74%_-2.52%]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-mobile.svg`} />
+              <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/dev-bglight-3-mobile.svg`} />
             </div>
           </div>
         </div>
@@ -172,13 +172,13 @@ export function DevSection() {
               <div className="absolute flex items-center justify-center mix-blend-overlay inset-[38.04%_-180.56%_-52.64%_-6.54%]" style={{ containerType: "size" }}>
                 <div className="flex-none -scale-x-100 rotate-[27.73deg] skew-x-[-74.93deg] h-[hypot(43.6073cqw,57.6643cqh)] w-[hypot(-56.3927cqw,-42.3357cqh)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-mobile.svg`} />
+                  <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-mobile.svg`} />
                 </div>
               </div>
               <div className="absolute flex items-center justify-center mix-blend-overlay inset-[38.04%_-180.56%_-52.64%_-6.54%]" style={{ containerType: "size" }}>
                 <div className="flex-none -scale-x-100 rotate-[27.73deg] skew-x-[-74.93deg] h-[hypot(43.6073cqw,57.6643cqh)] w-[hypot(-56.3927cqw,-42.3357cqh)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-mobile.svg`} />
+                  <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-mobile.svg`} />
                 </div>
               </div>
               <Ray posClass="left-[10.33px] top-[383.91px] h-[665.173px] w-[346.874px] mix-blend-plus-lighter" transformClass="rotate-[19.24deg] skew-x-[35.2deg] scale-y-[-0.82]" boxClass="h-[628.666px] w-[184.305px]" insetClass="inset-[-4.11%_-14.03%]" src={`${A}/dev-ellipse-28-mobile.svg`} />
@@ -189,7 +189,7 @@ export function DevSection() {
               <div className="flex size-[16px] shrink-0 items-center justify-center">
                 {/* кит Icons 28:27: code-s-slash (24px frame), оранж #FF8A33 из макета секции */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" className="block size-[14px] shrink-0" src="/assets/icons/kit/code-s-slash-orange.svg" />
+                <img loading="lazy" decoding="async" alt="" className="block size-[14px] shrink-0" src="/assets/icons/kit/code-s-slash-orange.svg" />
               </div>
               <div className="flex shrink-0 items-center pl-[2px] pr-[4px]">
                 <p className="whitespace-nowrap text-rd-xs font-medium text-rd-orange-strong [word-break:break-word]">
@@ -280,7 +280,7 @@ export function DevSection() {
                     <div className="absolute inset-[8.32%]">
                       <div className="absolute inset-[-10%_-13.33%_-16.66%_-13.33%]">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img alt="" className="block size-full max-w-none" src={`${A}/icon-reverse-engineering.svg`} />
+                        <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/icon-reverse-engineering.svg`} />
                       </div>
                     </div>
                   </div>
@@ -308,7 +308,7 @@ export function DevSection() {
                 />
                 {/* кит Icons 28:27: telegram-2 (Fill, 24px frame), белый */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" className="relative block size-[18px] shrink-0" src="/assets/icons/kit/telegram-2-fill-white.svg" />
+                <img loading="lazy" decoding="async" alt="" className="relative block size-[18px] shrink-0" src="/assets/icons/kit/telegram-2-fill-white.svg" />
                 <span className="relative flex items-center justify-center px-[2px]">
                   <span className="whitespace-nowrap text-rd-sm font-medium text-rd-text-default [text-shadow:0px_0.5px_1px_rgba(0,0,0,0.15)] [word-break:break-word]">
                     Заказать разработку
@@ -348,13 +348,13 @@ export function DevSection() {
               <div className="absolute flex items-center justify-center mix-blend-overlay inset-[-51.4%_-73.01%_-169.75%_26.79%]" style={{ containerType: "size" }}>
                 <div className="flex-none rotate-[-35.83deg] h-[hypot(36.862cqw,52.8234cqh)] w-[hypot(63.138cqw,-47.1766cqh)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
+                  <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
                 </div>
               </div>
               <div className="absolute flex items-center justify-center mix-blend-overlay inset-[-51.4%_-73.01%_-169.75%_26.79%]" style={{ containerType: "size" }}>
                 <div className="flex-none rotate-[-35.83deg] h-[hypot(36.862cqw,52.8234cqh)] w-[hypot(63.138cqw,-47.1766cqh)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
+                  <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/dev-light-group-desktop.svg`} />
                 </div>
               </div>
               <Ray posClass="left-[509.33px] top-[-28.21px] h-[1232.681px] w-[1300.702px] mix-blend-plus-lighter" transformClass="rotate-[132.8deg]" boxClass="h-[1523.555px] w-[269.135px]" insetClass="inset-[-5.41%_-30.6%]" src={`${A}/dev-ellipse-28-desktop.svg`} rayId="ray28" />
@@ -374,20 +374,20 @@ export function DevSection() {
             <div className="absolute bottom-0 left-[548px] h-[564px] w-[794px]">
               <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   alt=""
                   className="absolute left-0 top-0 h-[140.78%] w-full max-w-none"
-                  src={`${A}/illustration-dev.png`}
+                  src={`${A}/illustration-dev.webp`}
                 />
               </div>
             </div>
             <div className="absolute bottom-[-230px] left-[548px] h-[794px] w-[296px]">
               <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   alt=""
                   className="absolute left-0 top-0 h-full w-[268.24%] max-w-none"
-                  src={`${A}/illustration-dev.png`}
+                  src={`${A}/illustration-dev.webp`}
                 />
               </div>
             </div>

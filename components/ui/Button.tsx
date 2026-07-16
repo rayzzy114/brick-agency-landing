@@ -47,7 +47,7 @@ export function Button({
       )}
       {leadIcon && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <img loading="lazy" decoding="async"
           alt=""
           className={`relative block shrink-0 ${isLg ? "size-[18px]" : "size-[16px]"}`}
           src={leadIcon}

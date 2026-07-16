@@ -29,7 +29,7 @@ export function Card({
       />
       <div className="relative aspect-[160/90] w-full shrink-0 rounded-[16px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           alt={title}
           className="pointer-events-none absolute inset-0 size-full max-w-none rounded-[16px] object-cover"
           src={image}

@@ -22,13 +22,13 @@ export function Tabitem({
   className?: string;
   onClick?: () => void;
 }) {
-  const Root = (href ? "a" : "div") as "a";
+  // всегда <a>: без href пункт был <div> — не фокусировался и не работал с клавиатуры
   return (
-    <Root
-      {...(href ? { href } : {})}
+    <a
+      href={href ?? "#"}
       onClick={onClick}
       style={{ width }}
-      className={`flex flex-col items-start overflow-clip p-[16px] hover:bg-[rgba(255,255,255,0.06)] ${className ?? ""}`}
+      className={`flex flex-col items-start overflow-clip p-[16px] hover:bg-[rgba(255,255,255,0.06)] focus-visible:bg-[rgba(255,255,255,0.06)] ${className ?? ""}`}
       data-name="Tabitem"
     >
       <div
@@ -41,7 +41,7 @@ export function Tabitem({
             data-name="IconContainer"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="block size-[18px] shrink-0"
               src={icon}
@@ -72,7 +72,7 @@ export function Tabitem({
               <div className="flex size-[16px] items-center justify-center">
                 {/* кит Icons 28:27: user-3 (Fill, 24px frame), lime #B0FF00 */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   alt=""
                   className="block size-[12px] shrink-0"
                   src={badge.icon ?? "/assets/icons/kit/user-3-fill-lime.svg"}
@@ -87,6 +87,6 @@ export function Tabitem({
           )}
         </div>
       </div>
-    </Root>
+    </a>
   );
 }

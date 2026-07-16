@@ -4,6 +4,7 @@
 import { LandingBadge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { HeroVideo } from "./HeroVideo";
 
 export function Hero() {
   // моб. высота = контент + 36px «мёртвой зоны» (Figma FirstBlock 420 при контенте 384):
@@ -20,7 +21,7 @@ export function Hero() {
           <div className="absolute left-[202px] top-[604px] h-[592px] w-[1036px]">
             <div className="absolute inset-[-50.68%_-28.96%]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <img loading="lazy" decoding="async"
                 alt=""
                 className="block size-full max-w-none"
                 src="/assets/hero/ellipse-33.svg"
@@ -30,7 +31,7 @@ export function Hero() {
           <div className="absolute left-[547px] top-[439px] h-[622px] w-[346px]">
             <div className="absolute inset-[-48.23%_-86.71%]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <img loading="lazy" decoding="async"
                 alt=""
                 className="block size-full max-w-none"
                 src="/assets/hero/ellipse-34.svg"
@@ -42,10 +43,10 @@ export function Hero() {
               градиент тонкой зелёной линией; поднимаем на 3px, край дыры перекрыт */}
           <div className="absolute left-[258px] top-[788px] h-[398px] w-[925px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
-              src="/assets/hero/glow-photo.png"
+              src="/assets/hero/glow-photo.webp"
             />
           </div>
         </div>
@@ -58,20 +59,9 @@ export function Hero() {
             className="relative mx-auto h-full max-w-[1200px] overflow-hidden"
             data-node-id="18329:361986"
           >
-            {/* poster = 1-й кадр webm: пока видео грузится (12MB) или не играет
-                (iOS без mp4), без него просвечивала подложка макета — клиент видел
-                «полоску» (жёсткий край glow-photo + яркий низ градиента) */}
-            <video
-              className="absolute inset-0 size-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/assets/hero/main-banner-poster.jpg"
-            >
-              <source src="/assets/hero/main-banner.webm" type="video/webm" />
-            </video>
+            {/* poster = 1-й кадр webm: пока видео грузится или не играет (iOS без
+                mp4), без него просвечивала подложка макета («полоска») */}
+            <HeroVideo />
           </div>
         </div>
       </div>
@@ -109,7 +99,7 @@ export function Hero() {
             <Button
               variant="primary"
               size="lg"
-              href="#contact"
+              href="#community"
               leadIcon="/assets/icons/kit/telegram-2-fill-dark.svg"
             >
               Построить проект

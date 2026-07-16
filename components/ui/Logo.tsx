@@ -4,7 +4,7 @@
 export function LogoIcon({ className }: { className?: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <img loading="lazy" decoding="async"
       alt=""
       className={`block shrink-0 ${className ?? "size-[32px]"}`}
       src="/assets/icons/solid/logo-brick.svg"
@@ -30,7 +30,7 @@ export function Logo({
       <LogoIcon />
       <div className="relative h-[22px] w-[134px] shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           alt="Brick Agency"
           className="absolute inset-0 block size-full max-w-none"
           src="/assets/logo/title.svg"

@@ -52,10 +52,30 @@ export function Header() {
   // состоянии не должен схлопывать меню (toggle остаётся для тача/клавиатуры)
   const hoverHeld = useRef(false);
 
+  // Esc и клик мимо панели закрывают меню (a11y)
+  const rootRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const onDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onDown);
+    };
+  }, [menuOpen]);
+
   return (
-    <>
+    <div ref={rootRef} className="contents">
       <header
-        className="relative z-40 flex w-full flex-col items-center justify-center bg-rd-bg-default px-[16px] py-[16px] shadow-[inset_0_-1px_0_0_var(--rd-border-default)] backdrop-blur-[12px] md:px-[24px]"
+        className="relative z-40 flex w-full flex-col items-center justify-center bg-rd-bg-default px-[16px] py-[16px] shadow-[inset_0_-1px_0_0_var(--rd-border-default)] md:px-[24px]"
         data-node-id="18339:218443"
       >
         <div className="flex w-full max-w-[1200px] items-center justify-between lg:justify-normal">
@@ -86,6 +106,8 @@ export function Header() {
                     scheduleClose();
                   }}
                   aria-expanded={menuOpen}
+                  aria-haspopup="true"
+                  aria-controls="bw-menu"
                   className="group relative flex items-center justify-center gap-[4px] overflow-clip rounded-[6px] bg-rd-bg-state-ghost px-[10px] py-[6px]"
                 >
                   <BwMiniIcon />
@@ -141,7 +163,7 @@ export function Header() {
                 </Button>
                 <Button
                   variant="primary"
-                  href="#contact"
+                  href="#community"
                   leadIcon="/assets/icons/kit/telegram-2-fill-dark.svg"
                 >
                   Связаться
@@ -152,7 +174,7 @@ export function Header() {
 
           {/* mobile burger */}
           <div className="flex items-center lg:hidden">
-            <IconButton label="Меню" onClick={() => setMenuOpen((v) => !v)} />
+            <IconButton label="Меню" aria-expanded={menuOpen} aria-controls="bw-menu" onClick={() => setMenuOpen((v) => !v)} />
           </div>
         </div>
       </header>
@@ -162,6 +184,6 @@ export function Header() {
         onDesktopPanelEnter={openMenu}
         onDesktopPanelLeave={scheduleClose}
       />
-    </>
+    </div>
   );
 }

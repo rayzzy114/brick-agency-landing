@@ -11,13 +11,13 @@ function Mini16({ children }: { children: ReactNode }) {
 
 function ProjectLine({ icon, tail }: { icon: ReactNode; tail: string }) {
   return (
-    <div className="flex w-full items-center gap-[6px]" data-name="Line">
+    <a href="#" className="flex w-full items-center gap-[6px] hover:text-rd-text-default" data-name="Line">
       {icon}
       <p className="whitespace-nowrap text-rd-sm font-normal text-rd-text-subtle [word-break:break-word]">
         <span className="italic">Brick®</span>
         <span>{` ${tail}`}</span>
       </p>
-    </div>
+    </a>
   );
 }
 
@@ -69,8 +69,13 @@ function ContactsBlock({ className }: { className: string }) {
       className={`flex flex-col items-start gap-[12px] text-rd-sm not-italic [word-break:break-word] ${className}`}
     >
       <p className="w-full font-medium text-rd-text-default">Контакты</p>
-      <p className="w-full font-normal text-rd-text-subtle">Telegram-канал</p>
-      <p className="w-full font-normal text-rd-text-subtle">Telegram</p>
+      {/* href-заглушки до реальных URL от клиента — но уже настоящие ссылки */}
+      <a href="#" className="w-full font-normal text-rd-text-subtle hover:text-rd-text-default">
+        Telegram-канал
+      </a>
+      <a href="#" className="w-full font-normal text-rd-text-subtle hover:text-rd-text-default">
+        Telegram
+      </a>
     </div>
   );
 }
@@ -81,13 +86,13 @@ function Divider() {
     <div className="relative h-0 w-full shrink-0" data-name="Line">
       <div className="absolute inset-[-1px_0_0_0]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           alt=""
           className="hidden size-full max-w-none lg:block"
           src="/assets/footer/line-desktop.svg"
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           alt=""
           className="block size-full max-w-none lg:hidden"
           src="/assets/footer/line-mobile.svg"
@@ -110,7 +115,7 @@ function SmokeStack({
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="absolute left-[2.12%] top-[-22.98%] h-[123.04%] w-[99.78%] max-w-none"
             src="/assets/footer/smoke-static.png"
@@ -118,7 +123,7 @@ function SmokeStack({
         </div>
         <div className="absolute inset-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="absolute max-w-none"
             style={secondLayer}
@@ -213,9 +218,9 @@ export function Footer() {
         {/* bottom bar: legal links + copyright */}
         <div className="flex w-full flex-col items-start gap-[16px] whitespace-nowrap font-normal not-italic [word-break:break-word] lg:flex-row lg:gap-[8px] lg:pt-[36px]">
           <div className="flex w-full flex-col items-start justify-center gap-[16px] text-rd-xs text-rd-text-muted lg:w-auto lg:min-w-px lg:flex-[1_0_0] lg:flex-row lg:items-center lg:justify-start">
-            <p>Политика конфиденциальности</p>
-            <p>Пользовательское соглашение</p>
-            <p>Cookie</p>
+            <a href="#" className="hover:text-rd-text-subtle">Политика конфиденциальности</a>
+            <a href="#" className="hover:text-rd-text-subtle">Пользовательское соглашение</a>
+            <a href="#" className="hover:text-rd-text-subtle">Cookie</a>
           </div>
           <p className="text-rd-sm text-rd-text-subtle lg:text-rd-xs lg:text-rd-text-muted">
             BrickAgency All Rights Reserved © 2026

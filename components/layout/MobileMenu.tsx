@@ -19,7 +19,7 @@ function HSeparator({ src, full }: { src: string; full?: boolean }) {
     >
       <div className="absolute inset-[-0.5px_0]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt="" className="block size-full max-w-none" src={src} />
+        <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={src} />
       </div>
     </div>
   );
@@ -36,7 +36,7 @@ function VSeparator() {
         <div className="relative h-0 w-full" data-name="Separator">
           <div className="absolute inset-[-0.5px_0]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="block size-full max-w-none"
               src="/assets/menu/separator-vertical.svg"
@@ -78,9 +78,11 @@ function ProjectTile({
 }) {
   const lg = size === "lg";
   return (
-    <div
+    // ссылка-заглушка (реальные URL даст клиент): фокусируемая, с Enter/Space
+    <a
+      href="#"
       onClick={onClick}
-      className={`flex w-[290px] flex-col items-start overflow-clip hover:bg-[rgba(255,255,255,0.06)] ${
+      className={`flex w-[290px] flex-col items-start overflow-clip hover:bg-[rgba(255,255,255,0.06)] focus-visible:bg-[rgba(255,255,255,0.06)] ${
         highlighted ? "bg-[rgba(255,255,255,0.06)]" : ""
       } ${
         padding === "p16"
@@ -128,7 +130,7 @@ function ProjectTile({
         </div>
         {children}
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -146,9 +148,10 @@ function MobilePageRow({
   onClick?: () => void;
 }) {
   return (
-    <div
+    <a
+      href="#"
       onClick={onClick}
-      className="flex w-[290px] flex-col items-start overflow-clip px-[16px] py-[24px] hover:bg-[rgba(255,255,255,0.06)]"
+      className="flex w-[290px] flex-col items-start overflow-clip px-[16px] py-[24px] hover:bg-[rgba(255,255,255,0.06)] focus-visible:bg-[rgba(255,255,255,0.06)]"
       data-name="Tabitem"
     >
       <div
@@ -158,7 +161,7 @@ function MobilePageRow({
         <div className="flex flex-row items-center self-stretch">
           <div className="flex h-full items-start py-[2px]" data-name="IconContainer">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="block size-[18px] shrink-0"
               src={icon}
@@ -183,7 +186,7 @@ function MobilePageRow({
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -205,7 +208,7 @@ function MvpImage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[22px]">
           <div className="absolute inset-0 overflow-hidden rounded-[22px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="absolute left-[-2.5%] top-[-3.34%] h-[104.49%] w-[105.96%] max-w-none"
               src="/assets/menu/mvp-preview.png"
@@ -236,7 +239,7 @@ export function MobileMenu({
 }) {
   if (!open) return null;
   return (
-    <div className="relative z-30 w-full">
+    <div id="bw-menu" className="relative z-30 w-full">
       {/* Desktop mega-dropdown — Figma: HeaderMainMenu Property1=Default (870px) */}
       <div
         className="absolute left-1/2 top-0 hidden -translate-x-1/2 lg:block"
@@ -264,7 +267,7 @@ export function MobileMenu({
               title="Статьи"
               subtitle={
                 <>
-                  Делимся толкьо самым важным
+                  Делимся только самым важным
                   <br aria-hidden />и только о самом важном
                 </>
               }
@@ -336,7 +339,7 @@ export function MobileMenu({
             <div className="flex-none rotate-[15.41deg] skew-x-[-1.32deg]">
               <div className="relative h-[43.473px] w-[32.659px]" data-name="Vector">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   alt=""
                   className="absolute inset-0 block size-full max-w-none"
                   src="/assets/menu/cursor-arrow.svg"
@@ -415,7 +418,7 @@ export function MobileMenu({
             title="Статьи"
             subtitle={
               <>
-                Делимся толкьо самым важным
+                Делимся только самым важным
                 <br aria-hidden />и только о самом важном
               </>
             }

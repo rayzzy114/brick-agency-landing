@@ -36,7 +36,7 @@ function GlowLayers() {
               <div className="relative h-[946.588px] w-[270.477px]">
                 <div className="absolute inset-[-48.88%_-171.05%]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-26.svg`} />
+                  <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-26.svg`} />
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ function GlowLayers() {
           <div className="flex-none rotate-[-19.64deg]">
             <div className="relative h-[686.413px] w-[848.974px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/glow-group-1.svg`} />
+              <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/glow-group-1.svg`} />
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ function GlowLayers() {
           <div className="flex-none rotate-[-19.64deg]">
             <div className="relative h-[686.414px] w-[848.974px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/glow-group-2.svg`} />
+              <img loading="lazy" decoding="async" alt="" className="absolute inset-0 block size-full max-w-none" src={`${A}/glow-group-2.svg`} />
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ function GlowLayers() {
             <div className="relative h-[946.588px] w-[167.214px]">
               <div className="absolute inset-[-5.41%_-30.6%]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-28.svg`} />
+                <img loading="lazy" decoding="async" alt="" className="block size-full max-w-none" src={`${A}/glow-ellipse-28.svg`} />
               </div>
             </div>
           </div>
@@ -154,10 +154,10 @@ export function TelegramCta() {
           style={MASK_DESKTOP}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
-            src="/assets/sections/community-photo.png"
+            src="/assets/sections/community-photo.webp"
           />
         </div>
       </div>
@@ -166,10 +166,10 @@ export function TelegramCta() {
         style={MASK_MOBILE}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img loading="lazy" decoding="async"
           alt=""
           className="pointer-events-none absolute inset-0 size-full max-w-none object-cover"
-          src="/assets/sections/community-photo.png"
+          src="/assets/sections/community-photo.webp"
         />
       </div>
     </section>

@@ -15,7 +15,12 @@ export const STORAGE_KEY = "brick-footer-record";
 export const RECORD_EVENT = "brick-record-change";
 
 export function readRecord() {
-  return Number(localStorage.getItem(STORAGE_KEY) || "0");
+  // localStorage бросает SecurityError при заблокированных cookies/приватных режимах
+  try {
+    return Number(localStorage.getItem(STORAGE_KEY) || "0");
+  } catch {
+    return 0;
+  }
 }
 
 export function subscribeRecord(cb: () => void) {
@@ -330,7 +335,9 @@ export function BrickTowerGame({
     function updHud() {
       onScoreRef.current(score);
       if (best > readRecord()) {
-        localStorage.setItem(STORAGE_KEY, String(best));
+        try {
+          localStorage.setItem(STORAGE_KEY, String(best));
+        } catch {}
         window.dispatchEvent(new Event(RECORD_EVENT));
       }
     }
@@ -647,8 +654,16 @@ export function BrickTowerGame({
     const onPointerLeave = () => {
       hover = false;
     };
+    // клавиатура: Space работает и при фокусе (не только под мышью)
+    let focused = false;
+    const onFocus = () => {
+      focused = true;
+    };
+    const onBlur = () => {
+      focused = false;
+    };
     const onKeyDown = (e: KeyboardEvent) => {
-      if (!hover || e.code !== "Space") return;
+      if ((!hover && !focused) || e.code !== "Space") return;
       e.preventDefault();
       if (state === "aim") release();
       else if (state === "over" && t - overAt > 0.45) init();
@@ -669,6 +684,8 @@ export function BrickTowerGame({
       wrap.addEventListener("pointerdown", onPointerDown);
       wrap.addEventListener("pointerenter", onPointerEnter);
       wrap.addEventListener("pointerleave", onPointerLeave);
+      wrap.addEventListener("focus", onFocus);
+      wrap.addEventListener("blur", onBlur);
       window.addEventListener("keydown", onKeyDown);
       if ("IntersectionObserver" in window) {
         io = new IntersectionObserver(
@@ -698,6 +715,8 @@ export function BrickTowerGame({
       wrap.removeEventListener("pointerdown", onPointerDown);
       wrap.removeEventListener("pointerenter", onPointerEnter);
       wrap.removeEventListener("pointerleave", onPointerLeave);
+      wrap.removeEventListener("focus", onFocus);
+      wrap.removeEventListener("blur", onBlur);
       window.removeEventListener("keydown", onKeyDown);
       engineRef.current = null;
     };
@@ -706,8 +725,10 @@ export function BrickTowerGame({
   return (
     <div
       ref={wrapRef}
+      role="application"
+      tabIndex={disabled ? -1 : 0}
       className={`touch-manipulation select-none ${disabled ? "" : "cursor-pointer"} ${className}`}
-      aria-label="Мини-игра: собери башню из кирпичиков"
+      aria-label="Мини-игра: собери башню из кирпичиков — Space или клик, чтобы отпустить кирпич"
       data-name="Footer/TowerGame"
     >
       <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" />

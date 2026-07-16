@@ -1,0 +1,3 @@
+# staging (GH Pages) — не индексировать до переезда на боевой домен
+User-agent: *
+Disallow: /

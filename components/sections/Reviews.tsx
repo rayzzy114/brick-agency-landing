@@ -75,10 +75,10 @@ export function Reviews() {
               <div className="relative flex w-full items-start gap-[20px]">
                 <div className="pointer-events-none relative size-[48px] shrink-0 rounded-[8px] shadow-[0px_0px_0px_1px_#0e0e0e]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <img loading="lazy" decoding="async"
                     alt=""
                     className="absolute inset-0 size-full max-w-none rounded-[8px] object-cover"
-                    src="/assets/sections/review-avatar.png"
+                    src="/assets/sections/review-avatar.webp"
                   />
                   <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.4)]" />
                 </div>
@@ -108,7 +108,7 @@ export function Reviews() {
                 </span>
                 {/* кит Icons 28:27: arrow-right-up (Fill, 24px frame), белый 50% */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   alt=""
                   className="relative block size-[16px] shrink-0"
                   src="/assets/icons/kit/arrow-right-up-fill.svg"

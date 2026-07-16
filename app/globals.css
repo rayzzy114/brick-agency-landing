@@ -73,6 +73,8 @@ html {
 /* Figma frames clip overflowing decor (1440 bg strips, illustrations) */
 html,
 body {
+  /* fallback для Safari <16 (не знает clip) — иначе горизонтальный скролл от полос 1440 */
+  overflow-x: hidden;
   overflow-x: clip;
 }
 

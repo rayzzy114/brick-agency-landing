@@ -30,7 +30,7 @@ function TabDefault({
     >
       {!icon20 ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <img loading="lazy" decoding="async"
           alt=""
           className="block size-[24px] shrink-0"
           src={icon}
@@ -43,7 +43,7 @@ function TabDefault({
         >
           <div className="relative size-[20px] shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="absolute inset-0 block size-full max-w-none"
               src={icon}
@@ -103,7 +103,7 @@ function TabSpecial({ href, active }: { href?: string; active?: boolean }) {
           data-name="Vector"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             alt=""
             className="absolute inset-0 block size-full max-w-none"
             src="/assets/menu/tab-special-art.svg"
@@ -173,7 +173,7 @@ export function TabBar({ active = "world" }: { active?: TabKey }) {
         <div className="relative h-[19px] w-[161px]" data-name="Union">
           <div className="absolute inset-[0_22.36%_0_23.03%]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               alt=""
               className="block size-full max-w-none"
               src="/assets/menu/tabbar-union.svg"
@@ -211,7 +211,7 @@ export function TabBar({ active = "world" }: { active?: TabKey }) {
           <TabDefault
             label="Связаться"
             icon="/assets/icons/kit/telegram-2-fill-white50.svg"
-            href="#contact"
+            href="#community"
             active={active === "contact"}
           />
           <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_-1px_0px_0px_var(--rd-border-default),inset_0px_1px_0px_0px_var(--rd-border-default)]" />
