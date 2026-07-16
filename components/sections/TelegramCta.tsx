@@ -96,7 +96,7 @@ function GreenGlowMobile() {
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden xl:hidden">
       <div
         id="mglow-cal"
-        className="absolute left-[-536px] top-[37.88px] h-[1622.666px] w-[1652.662px] -scale-y-100"
+        className="absolute left-[calc(50%-731px)] top-[37.88px] h-[1622.666px] w-[1652.662px] -scale-y-100"
       >
         <GlowLayers />
       </div>
@@ -162,7 +162,7 @@ export function TelegramCta() {
         </div>
       </div>
       <div
-        className="pointer-events-none absolute left-[7px] top-[516.88px] h-[455.196px] w-[407.409px] xl:hidden"
+        className="pointer-events-none absolute left-[calc(50%-188px)] top-[516.88px] h-[455.196px] w-[407.409px] xl:hidden"
         style={MASK_MOBILE}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
